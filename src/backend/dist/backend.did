@@ -1,0 +1,395 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type _ImmutableObjectStorageRefillResult = 
+ record {
+   success: opt bool;
+   topped_up_amount: opt nat;
+ };
+type _ImmutableObjectStorageRefillInformation = record {
+                                                  proposed_top_up_amount:
+                                                   opt nat;};
+type _ImmutableObjectStorageCreateCertificateResult = 
+ record {
+   blob_hash: text;
+   method: text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserProfile = 
+ record {
+   name: text;
+   role: text;
+   sellerApproved: bool;
+   shopDescription: opt text;
+   shopName: opt text;
+ };
+type UserApprovalInfo = 
+ record {
+   "principal": principal;
+   status: ApprovalStatus;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type StripeSessionStatus = 
+ variant {
+   completed: record {
+                response: text;
+                userPrincipal: opt text;
+              };
+   failed: record {error: text;};
+ };
+type StripeConfiguration = 
+ record {
+   allowedCountries: vec text;
+   secretKey: text;
+ };
+type ShoppingItem = 
+ record {
+   currency: text;
+   priceInCents: nat;
+   productDescription: text;
+   productName: text;
+   quantity: nat;
+ };
+type SellerRegistration = 
+ record {
+   "principal": principal;
+   shopDescription: opt text;
+   shopName: text;
+ };
+type SellerProfileData = 
+ record {
+   averageRating: float64;
+   "principal": principal;
+   productCount: nat;
+   shopDescription: opt text;
+   shopName: text;
+   totalReviews: nat;
+ };
+type SellerInfo = 
+ record {
+   "principal": principal;
+   shopDescription: opt text;
+   shopName: text;
+   status: text;
+ };
+type SavedAddress = 
+ record {
+   city: text;
+   id: text;
+   name: text;
+   phone: text;
+   pincode: text;
+   state: text;
+   street: text;
+   tag: AddressLabel;
+ };
+type ReviewSummary = 
+ record {
+   averageRating: float64;
+   productId: text;
+   reviewCount: nat;
+ };
+type Review = 
+ record {
+   buyerId: principal;
+   buyerName: text;
+   id: nat;
+   productId: text;
+   rating: nat;
+   reviewText: text;
+   timestamp: int;
+ };
+type ReturnStatus = 
+ variant {
+   approved;
+   pending;
+   rejected;
+ };
+type ReturnRequest = 
+ record {
+   adminComment: opt text;
+   buyerId: principal;
+   id: text;
+   orderId: text;
+   reason: text;
+   status: ReturnStatus;
+   timestamp: int;
+ };
+type ReferralStats = 
+ record {
+   bonusPointsEarned: nat;
+   referralCode: text;
+   successfulReferrals: nat;
+   totalReferrals: nat;
+ };
+type RedeemResult = 
+ variant {
+   err: text;
+   ok: record {
+         discountAmount: nat;
+         pointsUsed: nat;
+       };
+ };
+type ProductVariant = 
+ record {
+   color: opt text;
+   id: text;
+   price: opt float64;
+   size: opt text;
+   stock: nat;
+ };
+type Product = 
+ record {
+   category: text;
+   description: text;
+   discountPercent: nat;
+   id: text;
+   image: ExternalBlob;
+   isActive: bool;
+   mrp: nat;
+   price: nat;
+   seller: principal;
+   stock: nat;
+   title: text;
+   variants: vec ProductVariant;
+ };
+type OrderStatus = 
+ variant {
+   approved;
+   cancelled;
+   delivered;
+   paid;
+   pending;
+   return_approved;
+   return_rejected;
+   return_requested;
+   shipped;
+ };
+type Order = 
+ record {
+   buyer: principal;
+   deliveryAddress: opt text;
+   id: text;
+   items: vec CartItem;
+   paymentMethod: variant {
+                    cod;
+                    online;
+                  };
+   status: OrderStatus;
+   timestamp: int;
+   totalAmount: nat;
+ };
+type ExternalBlob = blob;
+type CouponPublic = 
+ record {
+   code: text;
+   discountPercent: nat;
+   isActive: bool;
+   usageLimit: nat;
+   usedCount: nat;
+   validFrom: int;
+   validTo: int;
+ };
+type CartItem = 
+ record {
+   price: nat;
+   productId: text;
+   quantity: nat;
+   seller: principal;
+ };
+type ApprovalStatus = 
+ variant {
+   approved;
+   pending;
+   rejected;
+ };
+type AddressLabel = 
+ variant {
+   home;
+   office;
+   other;
+ };
+service : {
+  _immutableObjectStorageBlobsAreLive: (hashes: vec blob) -> (vec bool) query;
+  _immutableObjectStorageBlobsToDelete: () -> (vec blob) query;
+  _immutableObjectStorageConfirmBlobDeletion: (blobs: vec blob) -> ();
+  _immutableObjectStorageCreateCertificate: (blobHash: text) ->
+   (_ImmutableObjectStorageCreateCertificateResult);
+  _immutableObjectStorageRefillCashier: (refillInformation:
+   opt _ImmutableObjectStorageRefillInformation) ->
+   (_ImmutableObjectStorageRefillResult);
+  _immutableObjectStorageUpdateGatewayPrincipals: () -> ();
+  _initializeAccessControl: () -> ();
+  addProduct: (product: Product) -> ();
+  addProductVariant: (productId: text, "variant": ProductVariant) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  addReview: (productId: text, rating: nat, reviewText: text) ->
+   (variant {
+      err: text;
+      ok: text;
+    });
+  addSavedAddress: (address: SavedAddress) -> (variant {
+                                                 err: text;
+                                                 ok;
+                                               });
+  addToCart: (item: CartItem) -> ();
+  addToWishlist: (productId: text) -> (bool);
+  applyCoupon: (code: text) -> (variant {
+                                  err: text;
+                                  ok;
+                                });
+  applyReferralCode: (code: text) -> (variant {
+                                        err: text;
+                                        ok;
+                                      });
+  approveReturn: (requestId: text, adminComment: opt text) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  approveSeller: (seller: principal) -> ();
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  claimAdminRole: () -> ();
+  clearCallerCart: () -> ();
+  clearCart: () -> ();
+  createCheckoutSession: (items: vec ShoppingItem, successUrl: text,
+   cancelUrl: text) -> (text);
+  createCoupon: (code: text, discountPercent: nat, validFrom: int, validTo:
+   int, usageLimit: nat) -> (variant {
+                               err: text;
+                               ok: CouponPublic;
+                             });
+  deactivateCoupon: (code: text) -> (variant {
+                                       err: text;
+                                       ok;
+                                     });
+  deleteProduct: (productId: text) -> ();
+  deleteSavedAddress: (addressId: text) -> (variant {
+                                              err: text;
+                                              ok;
+                                            });
+  getAllActiveCoupons: () -> (vec CouponPublic) query;
+  getAllOrders: () -> (vec Order) query;
+  getAllReturnRequests: () -> (vec ReturnRequest) query;
+  getAllSellers: () -> (vec SellerInfo) query;
+  getCallerCart: () -> (opt vec CartItem) query;
+  getCallerSellerStatus: () -> (text) query;
+  getCallerUserProfile: () -> (opt UserProfile) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getCallerWishlist: () -> (vec text) query;
+  getLoyaltyPoints: () -> (nat) query;
+  getMyReturnRequests: () -> (vec ReturnRequest) query;
+  getOrderCommissionBreakdown: (orderId: text) ->
+   (opt
+     record {
+       adminCommission: nat;
+       sellerPayments: vec record {
+                             principal;
+                             nat;
+                           };
+     }) query;
+  getPendingSellerDetails: () -> (vec SellerRegistration) query;
+  getPendingSellerRegistrations: () -> (vec principal) query;
+  getPlatformEarnings: () -> (nat) query;
+  getProductAverageRating: (productId: text) -> (float64) query;
+  getProductReviews: (productId: text) -> (vec Review) query;
+  getProductVariants: (productId: text) -> (vec ProductVariant) query;
+  getProducts: () -> (vec Product) query;
+  getReferralCode: () -> (text);
+  getReferralStats: () -> (ReferralStats) query;
+  getReturnRequestByOrder: (orderId: text) -> (opt ReturnRequest) query;
+  getReviewSummaries: () -> (vec ReviewSummary) query;
+  getSavedAddresses: () -> (vec SavedAddress) query;
+  getSellerOrders: (seller: principal) -> (vec Order) query;
+  getSellerProducts: (seller: principal) -> (vec Product) query;
+  getSellerProfileData: (seller: principal) -> (opt SellerProfileData) query;
+  getSellerReviews: (seller: principal, limit: nat) -> (vec Review) query;
+  getStripeSessionStatus: (sessionId: text) -> (StripeSessionStatus);
+  getUserOrders: (user: principal) -> (vec Order) query;
+  getUserProducts: (user: principal) -> (vec Product) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  isCallerAdmin: () -> (bool) query;
+  isCallerApproved: () -> (bool) query;
+  isCallerSellerApproved: () -> (bool) query;
+  isInWishlist: (productId: text) -> (bool) query;
+  isStripeConfigured: () -> (bool) query;
+  listApprovals: () -> (vec UserApprovalInfo) query;
+  listCoupons: () -> (vec CouponPublic) query;
+  placeOrder: (order: Order) -> ();
+  redeemLoyaltyPoints: (pointsToRedeem: nat, orderTotal: nat) ->
+   (RedeemResult);
+  registerAsSeller: (shopName: text, shopDescription: opt text) -> ();
+  rejectReturn: (requestId: text, adminComment: opt text) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  rejectSeller: (seller: principal) -> ();
+  removeFromWishlist: (productId: text) -> (bool);
+  requestApproval: () -> ();
+  saveCallerUserProfile: (profile: UserProfile) -> ();
+  setApproval: (user: principal, status: ApprovalStatus) -> ();
+  setStripeConfiguration: (config: StripeConfiguration) -> ();
+  submitReturnRequest: (orderId: text, reason: text) ->
+   (variant {
+      err: text;
+      ok: ReturnRequest;
+    });
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+  updateOrderStatus: (orderId: text, status: OrderStatus) -> ();
+  updateProduct: (product: Product) -> ();
+  updateProductVariants: (productId: text, variants: vec ProductVariant) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  updateSavedAddress: (address: SavedAddress) -> (variant {
+                                                    err: text;
+                                                    ok;
+                                                  });
+  updateSellerOrderStatus: (orderId: text, newStatus:
+   variant {
+     approved;
+     cancelled;
+     delivered;
+     paid;
+     pending;
+     return_approved;
+     return_rejected;
+     return_requested;
+     shipped;
+   }) -> (variant {
+            err: text;
+            ok;
+          });
+  validateCoupon: (code: text) -> (variant {
+                                     err: text;
+                                     ok: nat;
+                                   }) query;
+}
