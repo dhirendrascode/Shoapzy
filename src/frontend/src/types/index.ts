@@ -3,11 +3,11 @@ import { ExternalBlob } from "../backend";
 
 export { ExternalBlob };
 
-// User role enum equivalent
+// User role enum — must match backend UserRole enum exactly (admin/user/guest)
 export const UserRole = {
   admin: "admin",
-  seller: "seller",
-  buyer: "buyer",
+  user: "user",
+  guest: "guest",
 } as const;
 export type UserRoleType = (typeof UserRole)[keyof typeof UserRole];
 
@@ -31,7 +31,7 @@ export interface Product {
   isActive: boolean;
   seller: Principal;
   image: ExternalBlob;
-  variants?: ProductVariant[];
+  variants: ProductVariant[];
 }
 
 export interface CartItem {
