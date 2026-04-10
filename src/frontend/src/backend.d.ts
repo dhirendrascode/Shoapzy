@@ -329,6 +329,7 @@ export interface backendInterface {
     placeOrder(order: Order): Promise<void>;
     redeemLoyaltyPoints(pointsToRedeem: bigint, orderTotal: bigint): Promise<RedeemResult>;
     registerAsSeller(shopName: string, shopDescription: string | null): Promise<void>;
+    registerUser(): Promise<void>;
     rejectReturn(requestId: string, adminComment: string | null): Promise<{
         __kind__: "ok";
         ok: null;
@@ -339,6 +340,7 @@ export interface backendInterface {
     rejectSeller(seller: Principal): Promise<void>;
     removeFromWishlist(productId: string): Promise<boolean>;
     requestApproval(): Promise<void>;
+    safeIsCallerAdmin(): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     setApproval(user: Principal, status: ApprovalStatus): Promise<void>;
     setStripeConfiguration(config: StripeConfiguration): Promise<void>;

@@ -317,6 +317,7 @@ export interface _SERVICE {
   'placeOrder' : ActorMethod<[Order], undefined>,
   'redeemLoyaltyPoints' : ActorMethod<[bigint, bigint], RedeemResult>,
   'registerAsSeller' : ActorMethod<[string, [] | [string]], undefined>,
+  'registerUser' : ActorMethod<[], undefined>,
   'rejectReturn' : ActorMethod<
     [string, [] | [string]],
     { 'ok' : null } |
@@ -325,6 +326,7 @@ export interface _SERVICE {
   'rejectSeller' : ActorMethod<[Principal], undefined>,
   'removeFromWishlist' : ActorMethod<[string], boolean>,
   'requestApproval' : ActorMethod<[], undefined>,
+  'safeIsCallerAdmin' : ActorMethod<[], boolean>,
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
   'setApproval' : ActorMethod<[Principal, ApprovalStatus], undefined>,
   'setStripeConfiguration' : ActorMethod<[StripeConfiguration], undefined>,

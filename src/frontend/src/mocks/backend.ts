@@ -146,4 +146,7 @@ export const mockBackend: backendInterface = {
     bonusPointsEarned: BigInt(0),
   }),
   applyReferralCode: async () => ({ __kind__: "ok" as const, ok: null }),
+  // Auth helpers added for stable login/admin detection
+  registerUser: async () => undefined,
+  safeIsCallerAdmin: async () => false,
 };

@@ -1,16 +1,76 @@
-import { ShieldCheck, ShoppingBag } from "lucide-react";
-import { useEffect } from "react";
+import { Loader2, ShieldCheck, ShoppingBag } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
+import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
+
+const REGISTER_MAX_RETRIES = 3;
+const REGISTER_RETRY_DELAY_MS = 1200;
+
+function sleep(ms: number) {
+  return new Promise<void>((resolve) => setTimeout(resolve, ms));
+}
 
 export default function Login() {
   const { identity, login, isLoggingIn } = useInternetIdentity();
+  const { actor } = useActor();
   const navigate = useNavigate();
+  const [isRegistering, setIsRegistering] = useState(false);
+  const hasRegistered = useRef(false);
 
+  // After successful login: call registerUser() to bootstrap the user's role
+  // in the backend. Without this, isCallerAdmin() traps after canister upgrades.
   useEffect(() => {
-    if (identity) navigate("/");
-  }, [identity, navigate]);
+    if (!identity || !actor || hasRegistered.current) return;
+
+    hasRegistered.current = true;
+    setIsRegistering(true);
+
+    const doRegisterAndRedirect = async () => {
+      let attempt = 0;
+      while (attempt < REGISTER_MAX_RETRIES) {
+        try {
+          await (
+            actor as unknown as Record<string, () => Promise<void>>
+          ).registerUser();
+          break;
+        } catch {
+          attempt++;
+          if (attempt < REGISTER_MAX_RETRIES) {
+            await sleep(REGISTER_RETRY_DELAY_MS);
+          }
+        }
+      }
+      setIsRegistering(false);
+      navigate("/");
+    };
+
+    doRegisterAndRedirect();
+  }, [identity, actor, navigate]);
+
+  // Show registering state after login completes
+  if (isRegistering) {
+    return (
+      <div
+        style={{ background: "#f1f3f6" }}
+        className="min-h-screen flex items-center justify-center p-4"
+      >
+        <div className="bg-white rounded-lg shadow p-10 max-w-md w-full text-center">
+          <Loader2
+            className="w-10 h-10 animate-spin mx-auto mb-4"
+            style={{ color: "#2874f0" }}
+          />
+          <h2 className="text-base font-semibold text-gray-700">
+            Setting up your account…
+          </h2>
+          <p className="text-gray-400 text-sm mt-2">
+            Just a moment while we prepare your Shoapzy account.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

@@ -197,6 +197,29 @@ actor {
     };
   };
 
+  // Register a user in the system — idempotent, safe to call multiple times.
+  // This MUST be called from the frontend after every login to ensure the user
+  // is in the userRoles map. Without registration, getUserRole() traps.
+  public shared ({ caller }) func registerUser() : async () {
+    if (caller.isAnonymous()) { return };
+    switch (accessControlState.userRoles.get(caller)) {
+      case (?_) { /* already registered — do nothing */ };
+      case (null) {
+        accessControlState.userRoles.add(caller, #user);
+      };
+    };
+  };
+
+  // Safe wrapper: returns #user instead of trapping for unregistered principals
+  public query ({ caller }) func safeIsCallerAdmin() : async Bool {
+    if (caller.isAnonymous()) { return false };
+    switch (accessControlState.userRoles.get(caller)) {
+      case (null) { false };
+      case (?#admin) { true };
+      case (?_) { false };
+    };
+  };
+
   // First-time admin claim -- works only when no admin has been assigned yet
   public shared ({ caller }) func claimAdminRole() : async () {
     if (accessControlState.adminAssigned) {

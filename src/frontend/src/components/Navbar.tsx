@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   ArrowLeftRight,
   BookMarked,
@@ -14,7 +14,7 @@ import {
   User,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useActor } from "../hooks/useActor";
 import { useCompare } from "../hooks/useCompare";
@@ -37,6 +37,7 @@ const CATEGORIES = [
 export default function Navbar() {
   const { identity, login, clear } = useInternetIdentity();
   const { actor } = useActor();
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -44,29 +45,42 @@ export default function Navbar() {
   const [catOpen, setCatOpen] = useState(false);
 
   const { compareCount } = useCompare();
+  const principalId = identity?.getPrincipal().toString();
+
+  // When identity changes (login/logout), invalidate cached admin status
+  // so the navbar never shows stale data from a previous session
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentional — principalId change triggers invalidation
+  useEffect(() => {
+    queryClient.invalidateQueries({ queryKey: ["isAdmin"] });
+    queryClient.invalidateQueries({ queryKey: ["role"] });
+  }, [principalId, queryClient]);
 
   const { data: cart } = useQuery({
-    queryKey: ["cart", identity?.getPrincipal().toString()],
+    queryKey: ["cart", principalId],
     queryFn: () => actor!.getCallerCart(),
     enabled: !!actor && !!identity,
   });
 
   const { data: isAdminData } = useQuery({
-    queryKey: ["isAdmin", identity?.getPrincipal().toString()],
+    queryKey: ["isAdmin", principalId],
     queryFn: async () => {
       try {
         return await actor!.isCallerAdmin();
       } catch {
+        // isCallerAdmin traps if caller not registered — default to false
         return false;
       }
     },
     enabled: !!actor && !!identity,
-    staleTime: 0, // always re-check on mount — never show stale admin link
-    retry: 1,
+    staleTime: 0, // never serve stale admin status
+    refetchOnMount: true, // always re-check when navbar mounts
+    refetchOnWindowFocus: true, // re-check when tab regains focus
+    retry: 3,
+    retryDelay: 1000,
   });
 
   const { data: wishlistIds = [] } = useQuery<string[]>({
-    queryKey: ["wishlist", identity?.getPrincipal().toString()],
+    queryKey: ["wishlist", principalId],
     queryFn: () => actor!.getCallerWishlist(),
     enabled: !!actor && !!identity,
   });

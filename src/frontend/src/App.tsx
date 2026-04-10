@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -23,6 +23,12 @@ const SavedAddresses = lazy(() => import("./pages/SavedAddresses"));
 const Compare = lazy(() => import("./pages/Compare"));
 const Referral = lazy(() => import("./pages/Referral"));
 
+const REGISTER_RETRY_DELAY_MS = 1200;
+
+function sleep(ms: number) {
+  return new Promise<void>((resolve) => setTimeout(resolve, ms));
+}
+
 function PageLoader() {
   return (
     <div
@@ -39,26 +45,87 @@ function PageLoader() {
 
 function AppRoutes() {
   const { identity } = useInternetIdentity();
-  const { actor } = useActor();
+  const { actor, isFetching } = useActor();
   const queryClient = useQueryClient();
   const isLoggedIn = !!identity;
   const principalId = identity?.getPrincipal().toString();
 
+  // Track which principal we last registered to avoid redundant calls
+  const registeredPrincipal = useRef<string | null>(null);
+  const isRegistering = useRef(false);
+
+  // CRITICAL FIX: Call registerUser() after every login and on app startup.
+  // This ensures the backend userRoles map always has this principal registered.
+  // Without this, isCallerAdmin() traps after canister upgrades.
+  useEffect(() => {
+    if (!actor || !identity || !principalId || isFetching) return;
+    if (registeredPrincipal.current === principalId) return;
+    if (isRegistering.current) return;
+
+    isRegistering.current = true;
+
+    const doRegister = async () => {
+      let attempt = 0;
+      const maxAttempts = 3;
+
+      while (attempt < maxAttempts) {
+        try {
+          await (
+            actor as unknown as Record<string, () => Promise<void>>
+          ).registerUser();
+          registeredPrincipal.current = principalId;
+          break;
+        } catch {
+          attempt++;
+          if (attempt < maxAttempts) {
+            await sleep(REGISTER_RETRY_DELAY_MS);
+          }
+        }
+      }
+
+      isRegistering.current = false;
+
+      // After registration attempt, invalidate and refetch admin status
+      // so Navbar shows Admin Dashboard link immediately
+      await queryClient.invalidateQueries({ queryKey: ["isAdmin"] });
+      await queryClient.invalidateQueries({ queryKey: ["role"] });
+      setTimeout(() => {
+        queryClient.refetchQueries({
+          queryKey: ["isAdmin", principalId],
+          exact: true,
+        });
+      }, 300);
+    };
+
+    doRegister();
+  }, [actor, identity, principalId, isFetching, queryClient]);
+
+  // When user logs out, reset the tracker and clear auth query cache
+  useEffect(() => {
+    if (!identity) {
+      registeredPrincipal.current = null;
+      isRegistering.current = false;
+      queryClient.invalidateQueries({ queryKey: ["isAdmin"] });
+      queryClient.invalidateQueries({ queryKey: ["role"] });
+    }
+  }, [identity, queryClient]);
+
   const { data: isAdmin } = useQuery({
     queryKey: ["isAdmin", principalId],
     queryFn: async () => {
-      // Invalidate stale cache for this exact key on each call
-      await queryClient.invalidateQueries({ queryKey: ["isAdmin"] });
       try {
         return await actor!.isCallerAdmin();
       } catch {
-        // If caller is not registered yet, treat as non-admin (not undefined)
+        // Caller not yet registered or canister unreachable — never crash
         return false;
       }
     },
     enabled: !!actor && isLoggedIn,
-    staleTime: 0, // always re-fetch on mount so nav stays accurate
-    retry: 1,
+    staleTime: 0, // never use stale admin status
+    refetchOnMount: true,
+    refetchOnWindowFocus: true, // re-check when tab gains focus
+    retry: 3,
+    retryDelay: 1000,
   });
 
   return (

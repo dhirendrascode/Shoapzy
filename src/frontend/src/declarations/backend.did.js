@@ -379,6 +379,7 @@ export const idlService = IDL.Service({
   'placeOrder' : IDL.Func([Order], [], []),
   'redeemLoyaltyPoints' : IDL.Func([IDL.Nat, IDL.Nat], [RedeemResult], []),
   'registerAsSeller' : IDL.Func([IDL.Text, IDL.Opt(IDL.Text)], [], []),
+  'registerUser' : IDL.Func([], [], []),
   'rejectReturn' : IDL.Func(
       [IDL.Text, IDL.Opt(IDL.Text)],
       [IDL.Variant({ 'ok' : IDL.Null, 'err' : IDL.Text })],
@@ -387,6 +388,7 @@ export const idlService = IDL.Service({
   'rejectSeller' : IDL.Func([IDL.Principal], [], []),
   'removeFromWishlist' : IDL.Func([IDL.Text], [IDL.Bool], []),
   'requestApproval' : IDL.Func([], [], []),
+  'safeIsCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
   'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
   'setApproval' : IDL.Func([IDL.Principal, ApprovalStatus], [], []),
   'setStripeConfiguration' : IDL.Func([StripeConfiguration], [], []),
@@ -812,6 +814,7 @@ export const idlFactory = ({ IDL }) => {
     'placeOrder' : IDL.Func([Order], [], []),
     'redeemLoyaltyPoints' : IDL.Func([IDL.Nat, IDL.Nat], [RedeemResult], []),
     'registerAsSeller' : IDL.Func([IDL.Text, IDL.Opt(IDL.Text)], [], []),
+    'registerUser' : IDL.Func([], [], []),
     'rejectReturn' : IDL.Func(
         [IDL.Text, IDL.Opt(IDL.Text)],
         [IDL.Variant({ 'ok' : IDL.Null, 'err' : IDL.Text })],
@@ -820,6 +823,7 @@ export const idlFactory = ({ IDL }) => {
     'rejectSeller' : IDL.Func([IDL.Principal], [], []),
     'removeFromWishlist' : IDL.Func([IDL.Text], [IDL.Bool], []),
     'requestApproval' : IDL.Func([], [], []),
+    'safeIsCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
     'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
     'setApproval' : IDL.Func([IDL.Principal, ApprovalStatus], [], []),
     'setStripeConfiguration' : IDL.Func([StripeConfiguration], [], []),

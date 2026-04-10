@@ -422,6 +422,7 @@ export interface backendInterface {
     placeOrder(order: Order): Promise<void>;
     redeemLoyaltyPoints(pointsToRedeem: bigint, orderTotal: bigint): Promise<RedeemResult>;
     registerAsSeller(shopName: string, shopDescription: string | null): Promise<void>;
+    registerUser(): Promise<void>;
     rejectReturn(requestId: string, adminComment: string | null): Promise<{
         __kind__: "ok";
         ok: null;
@@ -432,6 +433,7 @@ export interface backendInterface {
     rejectSeller(seller: Principal): Promise<void>;
     removeFromWishlist(productId: string): Promise<boolean>;
     requestApproval(): Promise<void>;
+    safeIsCallerAdmin(): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     setApproval(user: Principal, status: ApprovalStatus): Promise<void>;
     setStripeConfiguration(config: StripeConfiguration): Promise<void>;
@@ -1486,6 +1488,20 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async registerUser(): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.registerUser();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.registerUser();
+            return result;
+        }
+    }
     async rejectReturn(arg0: string, arg1: string | null): Promise<{
         __kind__: "ok";
         ok: null;
@@ -1545,6 +1561,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.requestApproval();
+            return result;
+        }
+    }
+    async safeIsCallerAdmin(): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.safeIsCallerAdmin();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.safeIsCallerAdmin();
             return result;
         }
     }

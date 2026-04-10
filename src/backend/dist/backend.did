@@ -345,6 +345,7 @@ service : {
   redeemLoyaltyPoints: (pointsToRedeem: nat, orderTotal: nat) ->
    (RedeemResult);
   registerAsSeller: (shopName: text, shopDescription: opt text) -> ();
+  registerUser: () -> ();
   rejectReturn: (requestId: text, adminComment: opt text) ->
    (variant {
       err: text;
@@ -353,6 +354,7 @@ service : {
   rejectSeller: (seller: principal) -> ();
   removeFromWishlist: (productId: text) -> (bool);
   requestApproval: () -> ();
+  safeIsCallerAdmin: () -> (bool) query;
   saveCallerUserProfile: (profile: UserProfile) -> ();
   setApproval: (user: principal, status: ApprovalStatus) -> ();
   setStripeConfiguration: (config: StripeConfiguration) -> ();
