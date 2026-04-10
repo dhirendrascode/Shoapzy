@@ -110,7 +110,17 @@ actor {
     commission : AdminCommissionBreakdown;
   };
 
+  // Stable backing storage so admin role survives canister upgrades
+  stable var _stableAdminAssigned : Bool = false;
+  stable var _stableUserRoles : [(Principal, AccessControl.UserRole)] = [];
+
   let accessControlState = AccessControl.initState();
+  // Restore persisted admin role on startup
+  accessControlState.adminAssigned := _stableAdminAssigned;
+  for ((p, r) in _stableUserRoles.vals()) {
+    accessControlState.userRoles.add(p, r);
+  };
+
   let approvalState = UserApproval.initState(accessControlState);
 
   // Kept for stable state upgrade compatibility with previous version
@@ -303,6 +313,26 @@ actor {
   public shared ({ caller }) func placeOrder(order : Order) : async () {
     if (caller.isAnonymous()) {
       Runtime.trap("Please login to place an order");
+    };
+    // Validate stock for every item before accepting the order
+    for (item in order.items.vals()) {
+      switch (products.get(item.productId)) {
+        case (null) { Runtime.trap("Product not found: " # item.productId) };
+        case (?product) {
+          if (product.stock < item.quantity) {
+            Runtime.trap("Insufficient stock for product: " # product.title);
+          };
+        };
+      };
+    };
+    // Deduct stock for each item
+    for (item in order.items.vals()) {
+      switch (products.get(item.productId)) {
+        case (null) {};
+        case (?product) {
+          products.add(item.productId, { product with stock = product.stock - item.quantity });
+        };
+      };
     };
     orders.add(order.id, order);
     // Award loyalty points: 1 point per 10 rupees spent
@@ -734,5 +764,17 @@ actor {
         reviewCount = cnt;
       }
     });
+  };
+
+  // ── Stable upgrade hooks ──────────────────────────────────────────────────
+  // Persist accessControlState so admin role is NEVER lost on canister upgrade
+
+  system func preupgrade() {
+    _stableAdminAssigned := accessControlState.adminAssigned;
+    _stableUserRoles := accessControlState.userRoles.entries().toArray();
+  };
+
+  system func postupgrade() {
+    // State is already restored in the let-block above on startup.
   };
 };

@@ -19,6 +19,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useActor } from "../hooks/useActor";
 import { useCompare } from "../hooks/useCompare";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
+import { ShoapzyLogo } from "./ShoapzyLogo";
 
 const CATEGORIES = [
   { label: "Electronics", path: "/?category=Electronics" },
@@ -52,8 +53,16 @@ export default function Navbar() {
 
   const { data: isAdminData } = useQuery({
     queryKey: ["isAdmin", identity?.getPrincipal().toString()],
-    queryFn: () => actor!.isCallerAdmin(),
+    queryFn: async () => {
+      try {
+        return await actor!.isCallerAdmin();
+      } catch {
+        return false;
+      }
+    },
     enabled: !!actor && !!identity,
+    staleTime: 0, // always re-check on mount — never show stale admin link
+    retry: 1,
   });
 
   const { data: wishlistIds = [] } = useQuery<string[]>({
@@ -88,27 +97,10 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               to="/"
-              className="shrink-0 flex flex-col leading-none select-none"
+              className="shrink-0 flex items-center select-none"
               data-ocid="nav-logo"
             >
-              <span
-                className="text-white font-bold text-xl tracking-tight"
-                style={{ fontFamily: "sans-serif" }}
-              >
-                Shoapzy
-                <sup
-                  className="text-[10px] font-semibold italic ml-0.5"
-                  style={{ color: "#ffe500", verticalAlign: "super" }}
-                >
-                  Plus
-                </sup>
-              </span>
-              <span className="text-[9px] italic text-blue-200 leading-none mt-px">
-                Explore{" "}
-                <span className="text-yellow-300 not-italic font-bold">
-                  Plus
-                </span>
-              </span>
+              <ShoapzyLogo size={36} variant="light" />
             </Link>
 
             {/* Search bar with category dropdown */}
