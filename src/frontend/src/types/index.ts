@@ -52,8 +52,8 @@ export const OrderStatus = {
   return_rejected: { return_rejected: null },
 } as const;
 export type OrderStatusType = (typeof OrderStatus)[keyof typeof OrderStatus];
-// biome-ignore lint/suspicious/noExplicitAny: variant object
-export type OrderStatus = any;
+// biome-ignore lint/suspicious/noExplicitAny: variant object shape varies by backend version
+export type OrderStatus = any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 export interface ShoppingItem {
   productName: string;

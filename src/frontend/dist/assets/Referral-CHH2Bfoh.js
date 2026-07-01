@@ -1,4 +1,4 @@
-import { c as createLucideIcon, a as useInternetIdentity, b as useActor, r as reactExports, d as useQuery, j as jsxRuntimeExports, G as Gift, S as Star, C as CircleCheck, U as Users, e as LoaderCircle } from "./index-BsYjBi5t.js";
+import { c as createLucideIcon, a as useInternetIdentity, b as useActor, r as reactExports, d as useQuery, j as jsxRuntimeExports, G as Gift, S as Star, C as CircleCheck, U as Users, e as LoaderCircle } from "./index-C47lDnxK.js";
 /**
  * @license lucide-react v0.511.0 - ISC
  *

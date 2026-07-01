@@ -309,7 +309,7 @@ function CouponsTab({
         validToMs,
         BigInt(usageLimit),
       );
-      if (result.__kind === "ok") {
+      if (result.__kind__ === "ok") {
         toast.success(
           `Coupon "${formCode.toUpperCase()}" created successfully!`,
         );
@@ -319,7 +319,7 @@ function CouponsTab({
         setFormUsageLimit("100");
         queryClient.invalidateQueries({ queryKey: ["adminCoupons"] });
       } else {
-        toast.error(result.err);
+        toast.error((result as { __kind__: "err"; err: string }).err);
       }
     } catch {
       toast.error("Failed to create coupon. Please try again.");
@@ -333,11 +333,11 @@ function CouponsTab({
     setDeactivatingCode(code);
     try {
       const result = await actor.deactivateCoupon(code);
-      if (result.__kind === "ok") {
+      if (result.__kind__ === "ok") {
         toast.success(`Coupon "${code}" deactivated.`);
         queryClient.invalidateQueries({ queryKey: ["adminCoupons"] });
       } else {
-        toast.error(result.err);
+        toast.error((result as { __kind__: "err"; err: string }).err);
       }
     } catch {
       toast.error("Failed to deactivate coupon.");
@@ -669,7 +669,8 @@ export default function AdminDashboard() {
     isError: returnsError,
   } = useQuery({
     queryKey: ["allReturnRequests"],
-    queryFn: () => actor!.getAllReturnRequests() as Promise<ReturnRequest[]>,
+    queryFn: () =>
+      actor!.getAllReturnRequests() as unknown as Promise<ReturnRequest[]>,
     enabled: enabled && tab === "returns",
     refetchOnMount: "always",
   });
@@ -752,7 +753,7 @@ export default function AdminDashboard() {
   };
 
   const sellerList = allSellers as SellerInfo[];
-  const orderList = allOrders as Order[];
+  const orderList = allOrders as unknown as Order[];
   const pendingList = pendingSellers as SellerRegistration[];
   const activeSellers = sellerList.filter(
     (s) => s.status === "approved",

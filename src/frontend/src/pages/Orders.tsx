@@ -550,7 +550,7 @@ export default function Orders() {
     [actor, identity],
   );
 
-  const allOrders = (orders as Order[]).sort(
+  const allOrders = (orders as unknown as Order[]).sort(
     (a, b) => Number(b.timestamp) - Number(a.timestamp),
   );
 

@@ -3183,8 +3183,8 @@ field ${k2} -> ${e.message}`);
     throw new Error(`Invalid ${this.display()} argument: ${toReadableString(x2)}`);
   }
   encodeValue(x2) {
-    const values = this._fields.map(([key]) => x2[key]);
-    const bufs = zipWith(this._fields, values, ([, c2], d2) => c2.encodeValue(d2));
+    const values2 = this._fields.map(([key]) => x2[key]);
+    const bufs = zipWith(this._fields, values2, ([, c2], d2) => c2.encodeValue(d2));
     return concat(...bufs);
   }
   _buildTypeTableImpl(T2) {
@@ -3253,8 +3253,8 @@ field ${k2} -> ${e.message}`);
     return `record {${fields.join("; ")}}`;
   }
   valueToString(x2) {
-    const values = this._fields.map(([key]) => x2[key]);
-    const fields = zipWith(this._fields, values, ([k2, c2], d2) => k2 + "=" + c2.valueToString(d2));
+    const values2 = this._fields.map(([key]) => x2[key]);
+    const fields = zipWith(this._fields, values2, ([k2, c2], d2) => k2 + "=" + c2.valueToString(d2));
     return `record {${fields.join("; ")}}`;
   }
 }
@@ -3313,8 +3313,8 @@ index ${i} -> ${e.message}`);
     const fields = this._components.map((value) => value.display());
     return `record {${fields.join("; ")}}`;
   }
-  valueToString(values) {
-    const fields = zipWith(this._components, values, (c2, d2) => c2.valueToString(d2));
+  valueToString(values2) {
+    const fields = zipWith(this._components, values2, (c2, d2) => c2.valueToString(d2));
     return `record {${fields.join("; ")}}`;
   }
 }
@@ -29914,20 +29914,49 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$Q = [
+const __iconNode$$ = [
   ["path", { d: "M8 3 4 7l4 4", key: "9rb6wj" }],
   ["path", { d: "M4 7h16", key: "6tx8e3" }],
   ["path", { d: "m16 21 4-4-4-4", key: "siv7j2" }],
   ["path", { d: "M20 17H4", key: "h6l3hr" }]
 ];
-const ArrowLeftRight = createLucideIcon("arrow-left-right", __iconNode$Q);
+const ArrowLeftRight = createLucideIcon("arrow-left-right", __iconNode$$);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$P = [
+const __iconNode$_ = [
+  [
+    "path",
+    {
+      d: "m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",
+      key: "1yiouv"
+    }
+  ],
+  ["circle", { cx: "12", cy: "8", r: "6", key: "1vp47v" }]
+];
+const Award = createLucideIcon("award", __iconNode$_);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$Z = [
+  ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
+  ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
+  ["path", { d: "M6 12h.01M18 12h.01", key: "113zkx" }]
+];
+const Banknote = createLucideIcon("banknote", __iconNode$Z);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$Y = [
   ["path", { d: "M10 2v8l3-3 3 3V2", key: "sqw3rj" }],
   [
     "path",
@@ -29937,7 +29966,103 @@ const __iconNode$P = [
     }
   ]
 ];
-const BookMarked = createLucideIcon("book-marked", __iconNode$P);
+const BookMarked = createLucideIcon("book-marked", __iconNode$Y);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$X = [
+  ["path", { d: "M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16", key: "jecpp" }],
+  ["rect", { width: "20", height: "14", x: "2", y: "6", rx: "2", key: "i6l2r4" }]
+];
+const Briefcase = createLucideIcon("briefcase", __iconNode$X);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$W = [
+  ["path", { d: "M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z", key: "1b4qmf" }],
+  ["path", { d: "M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2", key: "i71pzd" }],
+  ["path", { d: "M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2", key: "10jefs" }],
+  ["path", { d: "M10 6h4", key: "1itunk" }],
+  ["path", { d: "M10 10h4", key: "tcdvrf" }],
+  ["path", { d: "M10 14h4", key: "kelpxr" }],
+  ["path", { d: "M10 18h4", key: "1ulq68" }]
+];
+const Building2 = createLucideIcon("building-2", __iconNode$W);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$V = [
+  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
+  ["path", { d: "M18 17V9", key: "2bz60n" }],
+  ["path", { d: "M13 17V5", key: "1frdt8" }],
+  ["path", { d: "M8 17v-3", key: "17ska0" }]
+];
+const ChartColumn = createLucideIcon("chart-column", __iconNode$V);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$U = [
+  ["line", { x1: "18", x2: "18", y1: "20", y2: "10", key: "1xfpm4" }],
+  ["line", { x1: "12", x2: "12", y1: "20", y2: "4", key: "be30l9" }],
+  ["line", { x1: "6", x2: "6", y1: "20", y2: "14", key: "1r4le6" }]
+];
+const ChartNoAxesColumn = createLucideIcon("chart-no-axes-column", __iconNode$U);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$T = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$T);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$S = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$S);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$R = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$R);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$Q = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$Q);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$P = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
+  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
+];
+const CircleAlert = createLucideIcon("circle-alert", __iconNode$P);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29945,12 +30070,10 @@ const BookMarked = createLucideIcon("book-marked", __iconNode$P);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$O = [
-  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
-  ["path", { d: "M18 17V9", key: "2bz60n" }],
-  ["path", { d: "M13 17V5", key: "1frdt8" }],
-  ["path", { d: "M8 17v-3", key: "17ska0" }]
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
 ];
-const ChartColumn = createLucideIcon("chart-column", __iconNode$O);
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$O);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29958,43 +30081,56 @@ const ChartColumn = createLucideIcon("chart-column", __iconNode$O);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$N = [
-  ["line", { x1: "18", x2: "18", y1: "20", y2: "10", key: "1xfpm4" }],
-  ["line", { x1: "12", x2: "12", y1: "20", y2: "4", key: "be30l9" }],
-  ["line", { x1: "6", x2: "6", y1: "20", y2: "14", key: "1r4le6" }]
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const ChartNoAxesColumn = createLucideIcon("chart-no-axes-column", __iconNode$N);
+const CircleCheck = createLucideIcon("circle-check", __iconNode$N);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$M = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$M);
+const __iconNode$M = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M8 12h8", key: "1wcyev" }],
+  ["path", { d: "M12 8v8", key: "napkw2" }]
+];
+const CirclePlus = createLucideIcon("circle-plus", __iconNode$M);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$L = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("chevron-left", __iconNode$L);
+const __iconNode$L = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m15 9-6 6", key: "1uzhvr" }],
+  ["path", { d: "m9 9 6 6", key: "z0biqf" }]
+];
+const CircleX = createLucideIcon("circle-x", __iconNode$L);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$K = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$K);
+const __iconNode$K = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
+];
+const Clock = createLucideIcon("clock", __iconNode$K);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$J = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$J);
+const __iconNode$J = [
+  ["rect", { width: "20", height: "14", x: "2", y: "5", rx: "2", key: "ynyp8z" }],
+  ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }]
+];
+const CreditCard = createLucideIcon("credit-card", __iconNode$J);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30002,11 +30138,11 @@ const ChevronUp = createLucideIcon("chevron-up", __iconNode$J);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$I = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
-  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
+  ["path", { d: "M12 15V3", key: "m9g1x1" }],
+  ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
+  ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
 ];
-const CircleAlert = createLucideIcon("circle-alert", __iconNode$I);
+const Download = createLucideIcon("download", __iconNode$I);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30014,10 +30150,11 @@ const CircleAlert = createLucideIcon("circle-alert", __iconNode$I);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$H = [
-  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
-  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+  ["path", { d: "M10 14 21 3", key: "gplh6r" }],
+  ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
 ];
-const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$H);
+const ExternalLink = createLucideIcon("external-link", __iconNode$H);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30025,10 +30162,16 @@ const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$H);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$G = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  [
+    "path",
+    {
+      d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+      key: "1nclc0"
+    }
+  ],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$G);
+const Eye = createLucideIcon("eye", __iconNode$G);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30036,11 +30179,12 @@ const CircleCheck = createLucideIcon("circle-check", __iconNode$G);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$F = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "M8 12h8", key: "1wcyev" }],
-  ["path", { d: "M12 8v8", key: "napkw2" }]
+  [
+    "path",
+    { d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z", key: "1jg4f8" }
+  ]
 ];
-const CirclePlus = createLucideIcon("circle-plus", __iconNode$F);
+const Facebook = createLucideIcon("facebook", __iconNode$F);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30048,11 +30192,13 @@ const CirclePlus = createLucideIcon("circle-plus", __iconNode$F);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$E = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "m15 9-6 6", key: "1uzhvr" }],
-  ["path", { d: "m9 9 6 6", key: "z0biqf" }]
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "M10 9H8", key: "b1mrlr" }],
+  ["path", { d: "M16 13H8", key: "t4e002" }],
+  ["path", { d: "M16 17H8", key: "z1uh3a" }]
 ];
-const CircleX = createLucideIcon("circle-x", __iconNode$E);
+const FileText = createLucideIcon("file-text", __iconNode$E);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30060,41 +30206,6 @@ const CircleX = createLucideIcon("circle-x", __iconNode$E);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$D = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
-];
-const Clock = createLucideIcon("clock", __iconNode$D);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$C = [
-  ["rect", { width: "20", height: "14", x: "2", y: "5", rx: "2", key: "ynyp8z" }],
-  ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }]
-];
-const CreditCard = createLucideIcon("credit-card", __iconNode$C);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$B = [
-  [
-    "path",
-    { d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z", key: "1jg4f8" }
-  ]
-];
-const Facebook = createLucideIcon("facebook", __iconNode$B);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$A = [
   ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1", key: "bkv52" }],
   ["path", { d: "M12 8v13", key: "1c76mn" }],
   ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7", key: "6wjy6b" }],
@@ -30106,14 +30217,26 @@ const __iconNode$A = [
     }
   ]
 ];
-const Gift = createLucideIcon("gift", __iconNode$A);
+const Gift = createLucideIcon("gift", __iconNode$D);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$z = [
+const __iconNode$C = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
+  ["path", { d: "M2 12h20", key: "9i4pu4" }]
+];
+const Globe = createLucideIcon("globe", __iconNode$C);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$B = [
   [
     "path",
     {
@@ -30122,7 +30245,33 @@ const __iconNode$z = [
     }
   ]
 ];
-const Heart = createLucideIcon("heart", __iconNode$z);
+const Heart = createLucideIcon("heart", __iconNode$B);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$A = [
+  ["path", { d: "M6 3h12", key: "ggurg9" }],
+  ["path", { d: "M6 8h12", key: "6g4wlu" }],
+  ["path", { d: "m6 13 8.5 8", key: "u1kupk" }],
+  ["path", { d: "M6 13h3", key: "wdp6ag" }],
+  ["path", { d: "M9 13c6.667 0 6.667-10 0-10", key: "1nkvk2" }]
+];
+const IndianRupee = createLucideIcon("indian-rupee", __iconNode$A);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$z = [
+  ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
+  ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
+  ["line", { x1: "17.5", x2: "17.51", y1: "6.5", y2: "6.5", key: "r4j83e" }]
+];
+const Instagram = createLucideIcon("instagram", __iconNode$z);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30130,32 +30279,6 @@ const Heart = createLucideIcon("heart", __iconNode$z);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$y = [
-  ["path", { d: "M6 3h12", key: "ggurg9" }],
-  ["path", { d: "M6 8h12", key: "6g4wlu" }],
-  ["path", { d: "m6 13 8.5 8", key: "u1kupk" }],
-  ["path", { d: "M6 13h3", key: "wdp6ag" }],
-  ["path", { d: "M9 13c6.667 0 6.667-10 0-10", key: "1nkvk2" }]
-];
-const IndianRupee = createLucideIcon("indian-rupee", __iconNode$y);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$x = [
-  ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
-  ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
-  ["line", { x1: "17.5", x2: "17.51", y1: "6.5", y2: "6.5", key: "r4j83e" }]
-];
-const Instagram = createLucideIcon("instagram", __iconNode$x);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$w = [
   [
     "path",
     {
@@ -30178,7 +30301,28 @@ const __iconNode$w = [
     }
   ]
 ];
-const Layers = createLucideIcon("layers", __iconNode$w);
+const Layers = createLucideIcon("layers", __iconNode$y);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$x = [
+  ["rect", { width: "7", height: "9", x: "3", y: "3", rx: "1", key: "10lvy0" }],
+  ["rect", { width: "7", height: "5", x: "14", y: "3", rx: "1", key: "16une8" }],
+  ["rect", { width: "7", height: "9", x: "14", y: "12", rx: "1", key: "1hutg5" }],
+  ["rect", { width: "7", height: "5", x: "3", y: "16", rx: "1", key: "ldoo1y" }]
+];
+const LayoutDashboard = createLucideIcon("layout-dashboard", __iconNode$x);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$w = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
+const LoaderCircle = createLucideIcon("loader-circle", __iconNode$w);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30186,20 +30330,22 @@ const Layers = createLucideIcon("layers", __iconNode$w);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$v = [
-  ["rect", { width: "7", height: "9", x: "3", y: "3", rx: "1", key: "10lvy0" }],
-  ["rect", { width: "7", height: "5", x: "14", y: "3", rx: "1", key: "16une8" }],
-  ["rect", { width: "7", height: "9", x: "14", y: "12", rx: "1", key: "1hutg5" }],
-  ["rect", { width: "7", height: "5", x: "3", y: "16", rx: "1", key: "ldoo1y" }]
+  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
+  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
 ];
-const LayoutDashboard = createLucideIcon("layout-dashboard", __iconNode$v);
+const Lock = createLucideIcon("lock", __iconNode$v);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$u = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
-const LoaderCircle = createLucideIcon("loader-circle", __iconNode$u);
+const __iconNode$u = [
+  ["path", { d: "m10 17 5-5-5-5", key: "1bsop3" }],
+  ["path", { d: "M15 12H3", key: "6jk70r" }],
+  ["path", { d: "M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4", key: "u53s6r" }]
+];
+const LogIn = createLucideIcon("log-in", __iconNode$u);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30207,10 +30353,11 @@ const LoaderCircle = createLucideIcon("loader-circle", __iconNode$u);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$t = [
-  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
-  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
+  ["path", { d: "M21 12H9", key: "dn1m92" }],
+  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
 ];
-const Lock = createLucideIcon("lock", __iconNode$t);
+const LogOut = createLucideIcon("log-out", __iconNode$t);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30218,30 +30365,6 @@ const Lock = createLucideIcon("lock", __iconNode$t);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$s = [
-  ["path", { d: "m10 17 5-5-5-5", key: "1bsop3" }],
-  ["path", { d: "M15 12H3", key: "6jk70r" }],
-  ["path", { d: "M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4", key: "u53s6r" }]
-];
-const LogIn = createLucideIcon("log-in", __iconNode$s);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$r = [
-  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
-  ["path", { d: "M21 12H9", key: "dn1m92" }],
-  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
-];
-const LogOut = createLucideIcon("log-out", __iconNode$r);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$q = [
   [
     "path",
     {
@@ -30251,7 +30374,27 @@ const __iconNode$q = [
   ],
   ["circle", { cx: "12", cy: "10", r: "3", key: "ilqhr7" }]
 ];
-const MapPin = createLucideIcon("map-pin", __iconNode$q);
+const MapPin = createLucideIcon("map-pin", __iconNode$s);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$r = [
+  ["path", { d: "M4 12h16", key: "1lakjw" }],
+  ["path", { d: "M4 18h16", key: "19g7jn" }],
+  ["path", { d: "M4 6h16", key: "1o0s65" }]
+];
+const Menu = createLucideIcon("menu", __iconNode$r);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$q = [["path", { d: "M5 12h14", key: "1ays0h" }]];
+const Minus = createLucideIcon("minus", __iconNode$q);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30259,26 +30402,25 @@ const MapPin = createLucideIcon("map-pin", __iconNode$q);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$p = [
-  ["path", { d: "M4 12h16", key: "1lakjw" }],
-  ["path", { d: "M4 18h16", key: "19g7jn" }],
-  ["path", { d: "M4 6h16", key: "1o0s65" }]
+  ["path", { d: "M15 18h-5", key: "95g1m2" }],
+  ["path", { d: "M18 14h-8", key: "sponae" }],
+  [
+    "path",
+    {
+      d: "M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2",
+      key: "39pd36"
+    }
+  ],
+  ["rect", { width: "8", height: "4", x: "10", y: "6", rx: "1", key: "aywv1n" }]
 ];
-const Menu = createLucideIcon("menu", __iconNode$p);
+const Newspaper = createLucideIcon("newspaper", __iconNode$p);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$o = [["path", { d: "M5 12h14", key: "1ays0h" }]];
-const Minus = createLucideIcon("minus", __iconNode$o);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$n = [
+const __iconNode$o = [
   [
     "path",
     {
@@ -30290,7 +30432,18 @@ const __iconNode$n = [
   ["polyline", { points: "3.29 7 12 12 20.71 7", key: "ousv84" }],
   ["path", { d: "m7.5 4.27 9 5.15", key: "1c824w" }]
 ];
-const Package = createLucideIcon("package", __iconNode$n);
+const Package = createLucideIcon("package", __iconNode$o);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$n = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("plus", __iconNode$n);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30298,10 +30451,12 @@ const Package = createLucideIcon("package", __iconNode$n);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$m = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "M12 5v14", key: "s699le" }]
+  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
+  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
+  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
+  ["path", { d: "M8 16H3v5", key: "1cv678" }]
 ];
-const Plus = createLucideIcon("plus", __iconNode$m);
+const RefreshCw = createLucideIcon("refresh-cw", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30309,12 +30464,10 @@ const Plus = createLucideIcon("plus", __iconNode$m);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$l = [
-  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
-  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
-  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
-  ["path", { d: "M8 16H3v5", key: "1cv678" }]
+  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
+  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
 ];
-const RefreshCw = createLucideIcon("refresh-cw", __iconNode$l);
+const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$l);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30322,10 +30475,10 @@ const RefreshCw = createLucideIcon("refresh-cw", __iconNode$l);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$k = [
-  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
-  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
 ];
-const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$k);
+const Search = createLucideIcon("search", __iconNode$k);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30333,10 +30486,12 @@ const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$k);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$j = [
-  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
-  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+  ["rect", { width: "20", height: "8", x: "2", y: "2", rx: "2", ry: "2", key: "ngkwjq" }],
+  ["rect", { width: "20", height: "8", x: "2", y: "14", rx: "2", ry: "2", key: "iecqi9" }],
+  ["line", { x1: "6", x2: "6.01", y1: "6", y2: "6", key: "16zg32" }],
+  ["line", { x1: "6", x2: "6.01", y1: "18", y2: "18", key: "nzw8ys" }]
 ];
-const Search = createLucideIcon("search", __iconNode$j);
+const Server = createLucideIcon("server", __iconNode$j);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30443,6 +30598,17 @@ const SlidersHorizontal = createLucideIcon("sliders-horizontal", __iconNode$d);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$c = [
+  ["rect", { width: "14", height: "20", x: "5", y: "2", rx: "2", ry: "2", key: "1yt0o3" }],
+  ["path", { d: "M12 18h.01", key: "mhygvu" }]
+];
+const Smartphone = createLucideIcon("smartphone", __iconNode$c);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$b = [
   ["path", { d: "M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7", key: "1m0v6g" }],
   [
     "path",
@@ -30452,14 +30618,14 @@ const __iconNode$c = [
     }
   ]
 ];
-const SquarePen = createLucideIcon("square-pen", __iconNode$c);
+const SquarePen = createLucideIcon("square-pen", __iconNode$b);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$b = [
+const __iconNode$a = [
   [
     "path",
     {
@@ -30468,14 +30634,14 @@ const __iconNode$b = [
     }
   ]
 ];
-const Star = createLucideIcon("star", __iconNode$b);
+const Star = createLucideIcon("star", __iconNode$a);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$a = [
+const __iconNode$9 = [
   ["path", { d: "m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7", key: "ztvudi" }],
   ["path", { d: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8", key: "1b2hhj" }],
   ["path", { d: "M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4", key: "2ebpfo" }],
@@ -30488,14 +30654,14 @@ const __iconNode$a = [
     }
   ]
 ];
-const Store = createLucideIcon("store", __iconNode$a);
+const Store = createLucideIcon("store", __iconNode$9);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$9 = [
+const __iconNode$8 = [
   [
     "path",
     {
@@ -30505,21 +30671,7 @@ const __iconNode$9 = [
   ],
   ["circle", { cx: "7.5", cy: "7.5", r: ".5", fill: "currentColor", key: "kqv944" }]
 ];
-const Tag = createLucideIcon("tag", __iconNode$9);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$8 = [
-  ["path", { d: "M3 6h18", key: "d0wm0j" }],
-  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
-  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
-  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
-  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
-];
-const Trash2 = createLucideIcon("trash-2", __iconNode$8);
+const Tag = createLucideIcon("tag", __iconNode$8);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30527,10 +30679,13 @@ const Trash2 = createLucideIcon("trash-2", __iconNode$8);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$7 = [
-  ["path", { d: "M16 7h6v6", key: "box55l" }],
-  ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
+  ["path", { d: "M3 6h18", key: "d0wm0j" }],
+  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
+  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
+  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
+  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
 ];
-const TrendingUp = createLucideIcon("trending-up", __iconNode$7);
+const Trash2 = createLucideIcon("trash-2", __iconNode$7);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30538,6 +30693,35 @@ const TrendingUp = createLucideIcon("trending-up", __iconNode$7);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$6 = [
+  ["path", { d: "M16 7h6v6", key: "box55l" }],
+  ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
+];
+const TrendingUp = createLucideIcon("trending-up", __iconNode$6);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$5 = [
+  [
+    "path",
+    {
+      d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",
+      key: "wmoenq"
+    }
+  ],
+  ["path", { d: "M12 9v4", key: "juzpu7" }],
+  ["path", { d: "M12 17h.01", key: "p32p05" }]
+];
+const TriangleAlert = createLucideIcon("triangle-alert", __iconNode$5);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$4 = [
   ["path", { d: "M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2", key: "wrbu53" }],
   ["path", { d: "M15 18H9", key: "1lyqi6" }],
   [
@@ -30550,34 +30734,7 @@ const __iconNode$6 = [
   ["circle", { cx: "17", cy: "18", r: "2", key: "332jqn" }],
   ["circle", { cx: "7", cy: "18", r: "2", key: "19iecd" }]
 ];
-const Truck = createLucideIcon("truck", __iconNode$6);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$5 = [
-  [
-    "path",
-    {
-      d: "M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z",
-      key: "pff0z6"
-    }
-  ]
-];
-const Twitter = createLucideIcon("twitter", __iconNode$5);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$4 = [
-  ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
-  ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
-];
-const User = createLucideIcon("user", __iconNode$4);
+const Truck = createLucideIcon("truck", __iconNode$4);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30585,12 +30742,10 @@ const User = createLucideIcon("user", __iconNode$4);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$3 = [
-  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
-  ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
-  ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
-  ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
+  ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
+  ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
 ];
-const Users = createLucideIcon("users", __iconNode$3);
+const User = createLucideIcon("user", __iconNode$3);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30598,10 +30753,12 @@ const Users = createLucideIcon("users", __iconNode$3);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$2 = [
-  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
-  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+  ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
+  ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
+  ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
 ];
-const X = createLucideIcon("x", __iconNode$2);
+const Users = createLucideIcon("users", __iconNode$2);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30609,16 +30766,10 @@ const X = createLucideIcon("x", __iconNode$2);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$1 = [
-  [
-    "path",
-    {
-      d: "M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17",
-      key: "1q2vi4"
-    }
-  ],
-  ["path", { d: "m10 15 5-3-5-3z", key: "1jp15x" }]
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-const Youtube = createLucideIcon("youtube", __iconNode$1);
+const X = createLucideIcon("x", __iconNode$1);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -30639,31 +30790,31 @@ const footerColumns = [
   {
     heading: "ABOUT",
     links: [
-      { label: "About Us", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Corporate Information", href: "#" }
+      { label: "About Us", to: "/about" },
+      { label: "Careers", to: "/careers" },
+      { label: "Press", to: "/press" },
+      { label: "Blog", to: "/blog" },
+      { label: "Corporate Information", to: "/corporate" }
     ]
   },
   {
     heading: "HELP",
     links: [
-      { label: "Payments", href: "#" },
-      { label: "Shipping", href: "#" },
-      { label: "Cancellation & Returns", href: "#" },
-      { label: "FAQ", href: "#" },
-      { label: "Report Infringement", href: "#" }
+      { label: "Payments", to: "/help/payments" },
+      { label: "Shipping", to: "/help/shipping" },
+      { label: "Cancellation & Returns", to: "/help/returns" },
+      { label: "FAQ", to: "/help/faq" },
+      { label: "Report Infringement", to: "/help/report-infringement" }
     ]
   },
   {
     heading: "POLICY",
     links: [
-      { label: "Return Policy", href: "#" },
-      { label: "Terms of Use", href: "#" },
-      { label: "Security", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Sitemap", href: "#" }
+      { label: "Return Policy", to: "/policy/return-policy" },
+      { label: "Terms of Use", to: "/policy/terms" },
+      { label: "Security", to: "/policy/security" },
+      { label: "Privacy Policy", to: "/policy/privacy" },
+      { label: "Sitemap", to: "/policy/sitemap" }
     ]
   }
 ];
@@ -30673,13 +30824,11 @@ const socialLinks = [
     href: "https://www.facebook.com/share/1D8kyLCA7r/",
     Icon: Facebook
   },
-  { label: "Twitter", href: "#", Icon: Twitter },
   {
     label: "Instagram",
     href: "https://www.instagram.com/dhirendra7572?igsh=MXdpcW4yMWVzYTdwaQ==",
     Icon: Instagram
-  },
-  { label: "YouTube", href: "#", Icon: Youtube }
+  }
 ];
 const trustBadges = [
   { label: "100% Secure Payments", Icon: Lock },
@@ -30731,9 +30880,9 @@ function Footer() {
               }
             ),
             /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: col.links.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "a",
+              Link,
               {
-                href: link.href,
+                to: link.to,
                 className: "text-sm transition-colors duration-150 hover:text-white",
                 style: { color: "#9e9e9e" },
                 children: link.label
@@ -33366,7 +33515,9 @@ function createActor(canisterId, _uploadFile, _downloadFile, options = {}) {
   return new Backend(actor, _uploadFile, _downloadFile, options.processError);
 }
 function useActor() {
-  const result = useActor$1(createActor);
+  const result = useActor$1(
+    createActor
+  );
   return result;
 }
 const STORAGE_KEY = "shoapzy_compare";
@@ -37318,7 +37469,7 @@ function CouponsTab({
         validToMs,
         BigInt(usageLimit)
       );
-      if (result.__kind === "ok") {
+      if (result.__kind__ === "ok") {
         ue.success(
           `Coupon "${formCode.toUpperCase()}" created successfully!`
         );
@@ -37341,7 +37492,7 @@ function CouponsTab({
     setDeactivatingCode(code);
     try {
       const result = await actor.deactivateCoupon(code);
-      if (result.__kind === "ok") {
+      if (result.__kind__ === "ok") {
         ue.success(`Coupon "${code}" deactivated.`);
         queryClient2.invalidateQueries({ queryKey: ["adminCoupons"] });
       } else {
@@ -38283,11 +38434,19 @@ function Cart() {
     0
   );
   const discount = mrpTotal - sellingTotal;
+  const removeItemFromCart = async (productId, remainingItems) => {
+    await actor.clearCallerCart();
+    for (const item of remainingItems.filter(
+      (i) => i.productId !== productId
+    )) {
+      await actor.addToCart(item);
+    }
+    queryClient2.invalidateQueries({ queryKey: ["cart"] });
+  };
   const handleRemove = async (productId) => {
     setUpdatingId(productId);
     try {
-      await actor.removeFromCart(productId);
-      queryClient2.invalidateQueries({ queryKey: ["cart"] });
+      await removeItemFromCart(productId, cartItems);
     } finally {
       setUpdatingId(null);
     }
@@ -38430,11 +38589,17 @@ function Cart() {
                           } else {
                             setUpdatingId(item.productId);
                             try {
-                              await actor.removeFromCart(item.productId);
                               const updatedItem = {
                                 ...item,
                                 quantity: BigInt(Number(item.quantity) - 1)
                               };
+                              const others = cartItems.filter(
+                                (i) => i.productId !== item.productId
+                              );
+                              await actor.clearCallerCart();
+                              for (const other of others) {
+                                await actor.addToCart(other);
+                              }
                               await actor.addToCart(updatedItem);
                               queryClient2.invalidateQueries({
                                 queryKey: ["cart"]
@@ -38458,11 +38623,17 @@ function Cart() {
                         onClick: async () => {
                           setUpdatingId(item.productId);
                           try {
-                            await actor.removeFromCart(item.productId);
                             const updatedItem = {
                               ...item,
                               quantity: BigInt(Number(item.quantity) + 1)
                             };
+                            const others = cartItems.filter(
+                              (i) => i.productId !== item.productId
+                            );
+                            await actor.clearCallerCart();
+                            for (const other of others) {
+                              await actor.addToCart(other);
+                            }
                             await actor.addToCart(updatedItem);
                             queryClient2.invalidateQueries({
                               queryKey: ["cart"]
@@ -38725,7 +38896,7 @@ function Checkout() {
       const result = await actor.validateCoupon(
         couponCode.trim().toUpperCase()
       );
-      if (result.__kind === "ok") {
+      if (result.__kind__ === "ok") {
         const discount = Number(result.ok);
         setAppliedCoupon({
           code: couponCode.trim().toUpperCase(),
@@ -38758,14 +38929,19 @@ function Checkout() {
     setPointsApplying(true);
     setPointsError("");
     try {
-      const result = await actor.redeemLoyaltyPoints(BigInt(actualPoints));
-      if (result.__kind === "ok") {
+      const result = await actor.redeemLoyaltyPoints(
+        BigInt(actualPoints),
+        BigInt(total)
+      );
+      if (result.__kind__ === "ok") {
         setPointsApplied(discountPaise);
         setRedeemedPoints(actualPoints);
         setPointsToRedeem("");
         queryClient2.invalidateQueries({ queryKey: ["loyaltyPoints"] });
       } else {
-        setPointsError(result.err ?? "Failed to redeem points.");
+        setPointsError(
+          result.err ?? "Failed to redeem points."
+        );
       }
     } catch {
       setPointsError("Failed to apply points. Please try again.");
@@ -38814,7 +38990,9 @@ function Checkout() {
         items: cartItems,
         deliveryAddress: addressStr
       };
-      await actor.placeOrder(order);
+      await actor.placeOrder(
+        order
+      );
       await actor.clearCallerCart();
       queryClient2.invalidateQueries({ queryKey: ["cart"] });
       queryClient2.invalidateQueries({ queryKey: ["loyaltyPoints"] });
@@ -42575,26 +42753,21 @@ function SellerDashboard() {
     queryFn: () => actor.getUserProducts(identity.getPrincipal()),
     enabled
   });
-  const { data: orders = [] } = useQuery({
+  const { data: ordersRaw = [] } = useQuery({
     queryKey: ["sellerOrders", principalStr],
     queryFn: () => actor.getSellerOrders(identity.getPrincipal()),
     enabled
   });
+  const orders = ordersRaw;
   const { data: returnRequests = {} } = useQuery({
-    queryKey: [
-      "sellerReturnRequests",
-      principalStr,
-      orders.length
-    ],
+    queryKey: ["sellerReturnRequests", principalStr, orders.length],
     queryFn: async () => {
       if (!actor || !orders.length) return {};
       const results = {};
       await Promise.all(
         orders.map(async (order) => {
           try {
-            const req = await actor.getReturnRequestByOrder(
-              order.id
-            );
+            const req = await actor.getReturnRequestByOrder(order.id);
             results[order.id] = req;
           } catch {
             results[order.id] = null;
@@ -42726,9 +42899,13 @@ function SellerDashboard() {
         variants: existingVariants
       };
       if (editId) {
-        await actor.updateProduct(product);
+        await actor.updateProduct(
+          product
+        );
       } else {
-        await actor.addProduct(product);
+        await actor.addProduct(
+          product
+        );
       }
       queryClient2.invalidateQueries({ queryKey: ["sellerProducts"] });
       queryClient2.invalidateQueries({ queryKey: ["products"] });
@@ -43436,8 +43613,8 @@ function SellerProfile() {
     queryFn: async () => {
       if (!actor || !sellerPrincipal) return null;
       const result = await actor.getSellerProfileData(sellerPrincipal);
-      if (!result || result.length === 0) return null;
-      return result[0];
+      if (!result) return null;
+      return result;
     },
     enabled: !!actor && !!sellerPrincipal
   });
@@ -44118,9 +44295,2738 @@ function Wishlist() {
     )) }) })
   ] }) });
 }
-const SavedAddresses = reactExports.lazy(() => __vitePreload(() => import("./SavedAddresses-Do3WRr0t.js"), true ? [] : void 0));
-const Compare = reactExports.lazy(() => __vitePreload(() => import("./Compare-CQok-DZT.js"), true ? [] : void 0));
-const Referral = reactExports.lazy(() => __vitePreload(() => import("./Referral-BTHUfHir.js"), true ? [] : void 0));
+function Breadcrumb$e({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const milestones = [
+  {
+    year: "Jan 2026",
+    title: "Shoapzy Founded",
+    desc: "Started with a vision to empower Indian sellers and buyers. Platform launched with 100+ sellers across 10 categories."
+  },
+  {
+    year: "Mar 2026",
+    title: "10,000 Sellers",
+    desc: "Reached 10,000 registered sellers milestone. Categories expanded to 50+."
+  },
+  {
+    year: "Jun 2026",
+    title: "1 Million Orders",
+    desc: "Crossed 1 million orders placed on the platform. COD and Stripe payments live."
+  },
+  {
+    year: "Dec 2026",
+    title: "Going Global",
+    desc: "Expanding reach with new features: loyalty points, product comparison, referral system, and advanced seller tools."
+  }
+];
+const values = [
+  {
+    Icon: Users,
+    title: "Seller First",
+    desc: "We empower every seller — from village artisans to urban entrepreneurs."
+  },
+  {
+    Icon: Heart,
+    title: "Customer Love",
+    desc: "Every decision starts and ends with the customer's experience."
+  },
+  {
+    Icon: TrendingUp,
+    title: "Grow Together",
+    desc: "Our success is measured by how much our partners grow with us."
+  },
+  {
+    Icon: Globe,
+    title: "Made in India",
+    desc: "Proudly Indian — celebrating local craftsmanship and innovation."
+  }
+];
+function AboutUs() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "About Us" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "India ka apna marketplace — for every seller, for every buyer." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$e,
+        {
+          items: [{ label: "Home", href: "/" }, { label: "About Us" }]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg p-6 shadow-card mb-6 border border-border", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "h2",
+          {
+            className: "text-xl font-bold text-foreground mb-3",
+            style: { color: "#2874f0" },
+            children: "Our Mission"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-foreground leading-relaxed mb-3", children: [
+          "Shoapzy was founded with one simple belief:",
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "every Indian seller deserves a world-class platform" }),
+          " ",
+          "to reach millions of buyers. We are India's fastest-growing multi-vendor marketplace, built for the next billion users."
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed", children: "From handmade crafts to electronics, fashion to groceries — Shoapzy is home to all categories, serving buyers from Kanyakumari to Kashmir." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg p-6 shadow-card mb-6 border border-border", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-3", style: { color: "#2874f0" }, children: "Our Vision" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-foreground leading-relaxed", children: [
+          "To become India's most trusted e-commerce platform — where",
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "sellers thrive" }),
+          " with transparent commissions,",
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "buyers shop with confidence" }),
+          " backed by secure payments and easy returns, and ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "communities grow" }),
+          " ",
+          "through fair commerce."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg p-6 shadow-card mb-6 border border-border", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-3", style: { color: "#2874f0" }, children: "Our Story" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground leading-relaxed mb-3", children: "Shoapzy started in a small office with a big idea: to give local Indian sellers the same digital power as large enterprises. Our founders noticed that millions of talented artisans, craftspeople, and small business owners lacked access to a reliable online marketplace." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed", children: "Today, Shoapzy connects thousands of sellers to millions of buyers — with transparent pricing, fair commissions, and dedicated seller support. We are not just a marketplace; we are a movement." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "What We Stand For" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: values.map(({ Icon: Icon2, title, desc }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg p-5 border border-border shadow-card flex gap-4 items-start",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center",
+                  style: { backgroundColor: "#e8f0fe" },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { size: 18, style: { color: "#2874f0" } })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold text-foreground mb-1", children: title }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: desc })
+              ] })
+            ]
+          },
+          title
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "Our Journey" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4", children: milestones.map(({ year, title, desc }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg p-5 border border-border shadow-card text-center",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "text-lg font-extrabold mb-1",
+                  style: { color: "#2874f0" },
+                  children: year
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold text-foreground mb-2", children: title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: desc })
+            ]
+          },
+          year
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-6 mb-6",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Award, { size: 24, style: { color: "#2874f0" } }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-bold", style: { color: "#2874f0" }, children: "Empowering Sellers" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-foreground leading-relaxed mb-4", children: [
+              "At Shoapzy, sellers keep ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "90% of every sale" }),
+              ". We charge only 10% platform commission — far below the industry average. Our seller dashboard provides real-time analytics, easy product uploads with MRP and discount pricing, and direct buyer communication tools."
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Link,
+              {
+                to: "/seller/register",
+                className: "inline-block text-sm font-semibold text-white px-5 py-2 rounded transition-opacity hover:opacity-90",
+                style: { backgroundColor: "#2874f0" },
+                children: "Become a Seller →"
+              }
+            )
+          ]
+        }
+      )
+    ] })
+  ] });
+}
+function Breadcrumb$d({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const articles = [
+  {
+    tag: "Seller Success",
+    title: "How Ramesh from Jaipur tripled his sales on Shoapzy",
+    excerpt: "When Ramesh started selling his handmade leather goods on Shoapzy, he had just 10 products. Today, he ships 200+ orders every month to customers across India. Here is his story.",
+    author: "Shoapzy Team",
+    date: "April 5, 2026",
+    readTime: "5 min read",
+    tagColor: "#2874f0"
+  },
+  {
+    tag: "Shopping Tips",
+    title: "10 ways to get the best deals on Shoapzy",
+    excerpt: "From coupon codes to flash sales, from loyalty points to referral bonuses — here are the insider tricks to save the most money on every Shoapzy order.",
+    author: "Priya Sharma",
+    date: "March 28, 2026",
+    readTime: "4 min read",
+    tagColor: "#ff6000"
+  },
+  {
+    tag: "Platform Updates",
+    title: "Introducing Address Book: save multiple delivery addresses",
+    excerpt: "No more re-typing your home, office, and parents' address at checkout. Shoapzy's new Address Book lets you save up to 5 delivery addresses and pick one at checkout in seconds.",
+    author: "Shoapzy Team",
+    date: "March 15, 2026",
+    readTime: "3 min read",
+    tagColor: "#2874f0"
+  },
+  {
+    tag: "Seller Guide",
+    title: "Complete guide: setting up MRP and discount pricing on Shoapzy",
+    excerpt: "Pricing your products correctly is the fastest path to more sales. In this guide, we explain how to set MRP, discount percentage, and let Shoapzy calculate the selling price — all automatically.",
+    author: "Anjali Singh",
+    date: "March 8, 2026",
+    readTime: "7 min read",
+    tagColor: "#ff6000"
+  }
+];
+const categories = [
+  "All",
+  "Seller Success",
+  "Shopping Tips",
+  "Platform Updates",
+  "Seller Guide",
+  "Trends"
+];
+function Blog() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Shoapzy Blog" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Tips, stories, and updates from India's marketplace." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Breadcrumb$d, { items: [{ label: "Home", href: "/" }, { label: "Blog" }] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap gap-2 mb-8", children: categories.map((cat, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "text-xs font-semibold px-4 py-1.5 rounded-full border transition-colors",
+          style: i === 0 ? {
+            backgroundColor: "#2874f0",
+            color: "#fff",
+            borderColor: "#2874f0"
+          } : {
+            backgroundColor: "transparent",
+            color: "#555",
+            borderColor: "#ddd"
+          },
+          children: cat
+        },
+        cat
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8", children: articles.map((article) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "article",
+        {
+          className: "bg-card rounded-lg border border-border shadow-card overflow-hidden hover:shadow-elevated transition-shadow cursor-pointer",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "h-2 w-full",
+                style: { backgroundColor: article.tagColor }
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "span",
+                {
+                  className: "inline-block text-xs font-bold px-2 py-0.5 rounded mb-3",
+                  style: {
+                    backgroundColor: `${article.tagColor}18`,
+                    color: article.tagColor
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 10, className: "inline mr-1" }),
+                    article.tag
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-bold text-foreground text-base mb-2 leading-snug", children: article.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4 line-clamp-3", children: article.excerpt }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between text-xs text-muted-foreground border-t border-border pt-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(User, { size: 11 }),
+                  " ",
+                  article.author
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 11 }),
+                  " ",
+                  article.readTime
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-1", children: article.date })
+            ] })
+          ]
+        },
+        article.title
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-6 border border-border text-center",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-lg mb-2", style: { color: "#2874f0" }, children: "Stay Updated" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground mb-4", children: "Get the latest seller tips, platform updates, and shopping deals delivered to your inbox." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-2 max-w-md mx-auto", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  type: "email",
+                  placeholder: "Enter your email",
+                  className: "flex-1 input-field text-sm"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  type: "button",
+                  className: "text-sm font-semibold text-white px-5 py-2 rounded transition-opacity hover:opacity-90 whitespace-nowrap",
+                  style: { backgroundColor: "#2874f0" },
+                  children: "Subscribe"
+                }
+              )
+            ] })
+          ]
+        }
+      )
+    ] })
+  ] });
+}
+function Breadcrumb$c({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const openings = [
+  {
+    title: "Senior Frontend Engineer",
+    team: "Engineering",
+    location: "Bangalore / Remote",
+    type: "Full-time",
+    desc: "Build delightful user experiences for millions of Indian buyers and sellers using React, TypeScript, and Tailwind CSS."
+  },
+  {
+    title: "Backend Engineer (Motoko)",
+    team: "Engineering",
+    location: "Hyderabad / Remote",
+    type: "Full-time",
+    desc: "Design and implement scalable backend services on the Internet Computer blockchain using Motoko and modern distributed systems patterns."
+  },
+  {
+    title: "Growth Marketing Manager",
+    team: "Marketing",
+    location: "Mumbai",
+    type: "Full-time",
+    desc: "Drive user acquisition and retention through data-driven campaigns, influencer partnerships, and community building across social media."
+  },
+  {
+    title: "Seller Success Manager",
+    team: "Operations",
+    location: "Delhi / Remote",
+    type: "Full-time",
+    desc: "Work directly with sellers to help them grow their businesses on Shoapzy — onboarding, coaching, and resolving escalations."
+  },
+  {
+    title: "Product Designer (UX/UI)",
+    team: "Design",
+    location: "Remote",
+    type: "Full-time",
+    desc: "Craft intuitive, beautiful interfaces that serve India's next billion online shoppers. Own full design flows from research to final specs."
+  },
+  {
+    title: "Data Analyst",
+    team: "Analytics",
+    location: "Bangalore",
+    type: "Full-time",
+    desc: "Turn complex data into actionable insights that drive product decisions, improve seller performance, and boost buyer satisfaction."
+  }
+];
+const perks = [
+  "Competitive salary + equity",
+  "Remote-friendly culture",
+  "Health insurance for you and family",
+  "Annual learning & development budget",
+  "Home office setup allowance",
+  "Paid parental leave",
+  "Employee discount on Shoapzy orders",
+  "Annual team retreats"
+];
+function Careers() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Careers at Shoapzy" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Join us in building India's most trusted marketplace." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$c,
+        {
+          items: [{ label: "Home", href: "/" }, { label: "Careers" }]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-6 mb-8 border border-border",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-2", style: { color: "#2874f0" }, children: "Build something that matters" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground leading-relaxed mb-4", children: "At Shoapzy, every line of code, every design decision, and every seller success story is part of a bigger mission — democratizing commerce for every Indian. We move fast, think big, and care deeply about our sellers and buyers." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-sm", children: [
+              "We are a ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "remote-first" }),
+              " team with offices in Bangalore, Mumbai, Delhi, and Hyderabad."
+            ] })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 text-foreground flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Briefcase, { size: 20, style: { color: "#2874f0" } }),
+          " Open Positions"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: openings.map((job) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-5 hover:shadow-elevated transition-shadow",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row sm:items-start justify-between gap-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-foreground text-base mb-1", children: job.title }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3 text-xs text-muted-foreground mb-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Briefcase, { size: 12 }),
+                    " ",
+                    job.team
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { size: 12 }),
+                    " ",
+                    job.location
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 12 }),
+                    " ",
+                    job.type
+                  ] })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: job.desc })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  type: "button",
+                  className: "flex-shrink-0 flex items-center gap-1 text-sm font-semibold text-white px-4 py-2 rounded transition-opacity hover:opacity-90 self-start",
+                  style: { backgroundColor: "#2874f0" },
+                  onClick: () => {
+                    window.location.href = `mailto:careers@shoapzy.com?subject=Application: ${job.title}`;
+                  },
+                  children: [
+                    "Apply ",
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 14 })
+                  ]
+                }
+              )
+            ] })
+          },
+          job.title
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg p-6 border border-border shadow-card mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "Life at Shoapzy" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-3", children: perks.map((perk) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "flex items-center gap-2 text-sm text-foreground",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold",
+                  style: { backgroundColor: "#2874f0" },
+                  children: "✓"
+                }
+              ),
+              perk
+            ]
+          },
+          perk
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg p-6 border border-border shadow-card text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-lg text-foreground mb-2", children: "Don't see your role?" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Send us your resume — we are always looking for exceptional talent." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "a",
+          {
+            href: "mailto:careers@shoapzy.com",
+            className: "inline-block text-sm font-semibold text-white px-6 py-2 rounded transition-opacity hover:opacity-90",
+            style: { backgroundColor: "#2874f0" },
+            children: "Send Open Application"
+          }
+        )
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$b({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const companyDetails = [
+  { label: "Company Name", value: "Shoapzy Commerce Private Limited" },
+  { label: "CIN", value: "" },
+  {
+    label: "Registered Office",
+    value: ""
+  },
+  {
+    label: "Corporate Office",
+    value: ""
+  },
+  { label: "Year of Incorporation", value: "2026" },
+  { label: "GST Number", value: "" },
+  { label: "PAN Number", value: "" }
+];
+const boardMembers = [
+  {
+    name: "Dhirendra Kumar",
+    role: "Founder & CEO",
+    desc: "Serial entrepreneur with 10+ years in e-commerce and technology."
+  },
+  {
+    name: "Durgvijay Singh",
+    role: "Co-founder & COO",
+    desc: "Ex-Flipkart operations leader, expert in last-mile delivery and seller onboarding."
+  },
+  {
+    name: "Durgesh",
+    role: "CTO",
+    desc: "Former tech lead at Meesho, architect of distributed commerce platforms."
+  }
+];
+const policies = [
+  { title: "Return Policy", href: "/policy/return-policy" },
+  { title: "Privacy Policy", href: "/policy/privacy" },
+  { title: "Terms of Use", href: "/policy/terms" },
+  { title: "Security", href: "/policy/security" }
+];
+function Corporate() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Corporate Information" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Legal entity details, governance, and investor information." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$b,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Corporate Information" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "h2",
+          {
+            className: "text-xl font-bold mb-4 flex items-center gap-2",
+            style: { color: "#2874f0" },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Building2, { size: 20 }),
+              " Company Details"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divide-y divide-border", children: companyDetails.map(({ label, value }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row py-3 gap-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground font-medium w-48 flex-shrink-0", children: label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-foreground", children: value })
+        ] }, label)) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 flex items-center gap-2 text-foreground", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { size: 20, style: { color: "#2874f0" } }),
+          " Board of Directors"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-3 gap-4", children: boardMembers.map((member) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-5 text-center",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "w-14 h-14 rounded-full mx-auto mb-3 flex items-center justify-center text-white font-bold text-lg",
+                  style: { backgroundColor: "#2874f0" },
+                  children: member.name.split(" ").map((n) => n[0]).join("")
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-foreground text-sm", children: member.name }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "p",
+                {
+                  className: "text-xs font-semibold mb-2",
+                  style: { color: "#2874f0" },
+                  children: member.role
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: member.desc })
+            ]
+          },
+          member.name
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-6 mb-6 border border-border",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "h2",
+              {
+                className: "text-xl font-bold mb-3 flex items-center gap-2",
+                style: { color: "#2874f0" },
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { size: 20 }),
+                  " Investor Relations"
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground mb-3", children: "Shoapzy is a privately held company. For investor enquiries, partnership proposals, or financial information requests, please contact our investor relations team." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "a",
+              {
+                href: "mailto:ir@shoapzy.com",
+                className: "text-sm font-semibold",
+                style: { color: "#2874f0" },
+                children: "ir@shoapzy.com"
+              }
+            )
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 flex items-center gap-2 text-foreground", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { size: 20, style: { color: "#2874f0" } }),
+          " Governance & Policies"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Shoapzy is committed to transparent governance and regulatory compliance under Indian law." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 sm:grid-cols-4 gap-3", children: policies.map(({ title, href }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Link,
+          {
+            to: href,
+            className: "text-sm font-semibold text-center py-2 px-3 rounded border transition-colors hover:bg-muted",
+            style: { color: "#2874f0", borderColor: "#2874f0" },
+            children: title
+          },
+          title
+        )) })
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$a({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const pressReleases = [
+  {
+    date: "March 15, 2026",
+    title: "Shoapzy crosses 1 million orders milestone",
+    summary: "India's fastest growing multi-vendor marketplace celebrates its one millionth successful order delivery, marking a major milestone in accessible Indian e-commerce."
+  },
+  {
+    date: "January 8, 2026",
+    title: "Shoapzy launches Loyalty Points program for buyers",
+    summary: "New SuperCoins-style rewards system lets buyers earn points on every purchase, redeemable as discounts on future orders — boosting buyer retention by 45%."
+  },
+  {
+    date: "November 2, 2025",
+    title: "Shoapzy expands to 500+ product categories",
+    summary: "Platform now supports sellers across 500+ categories including electronics, fashion, home decor, groceries, and traditional Indian handicrafts."
+  },
+  {
+    date: "August 19, 2025",
+    title: "Shoapzy introduces COD payment option",
+    summary: "Cash on Delivery now available across India, making online shopping accessible to customers without digital payment methods."
+  }
+];
+const mediaFeatures = [
+  {
+    outlet: "Economic Times",
+    headline: "Shoapzy emerges as serious contender in India's e-commerce space"
+  },
+  {
+    outlet: "YourStory",
+    headline: "How Shoapzy is empowering India's small sellers with 90% revenue share"
+  },
+  {
+    outlet: "Inc42",
+    headline: "Shoapzy raises the bar for seller-first marketplace models in India"
+  },
+  {
+    outlet: "Mint",
+    headline: "Digital India: platforms like Shoapzy driving rural seller adoption"
+  }
+];
+function Press() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Press & Media" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Latest news, press releases, and media resources from Shoapzy." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$a,
+        {
+          items: [{ label: "Home", href: "/" }, { label: "Press" }]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-5 mb-8 border border-border",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-bold text-base mb-1", style: { color: "#2874f0" }, children: "Media Enquiries" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground mb-2", children: "For press enquiries, interviews, or editorial requests, contact our communications team." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "a",
+              {
+                href: "mailto:press@shoapzy.com",
+                className: "text-sm font-semibold",
+                style: { color: "#2874f0" },
+                children: "press@shoapzy.com"
+              }
+            )
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 text-foreground flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Newspaper, { size: 20, style: { color: "#2874f0" } }),
+          " Press Releases"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: pressReleases.map((pr) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-5",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mb-1", children: pr.date }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-foreground mb-2", children: pr.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: pr.summary })
+            ]
+          },
+          pr.title
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 text-foreground flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 20, style: { color: "#2874f0" } }),
+          " Shoapzy in the News"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: mediaFeatures.map(({ outlet, headline }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-4",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "inline-block text-xs font-bold text-white px-2 py-1 rounded mb-2",
+                  style: { backgroundColor: "#2874f0" },
+                  children: outlet
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-foreground italic", children: [
+                '"',
+                headline,
+                '"'
+              ] })
+            ]
+          },
+          outlet
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg p-6 border border-border shadow-card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-3 text-foreground", children: "Media Kit" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Download our official media kit including logos, brand guidelines, product screenshots, and founder photos for editorial use." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              type: "button",
+              className: "flex items-center gap-2 text-sm font-semibold text-white px-5 py-2 rounded transition-opacity hover:opacity-90",
+              style: { backgroundColor: "#2874f0" },
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Download, { size: 15 }),
+                " Download Media Kit"
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              className: "flex items-center gap-2 text-sm font-semibold px-5 py-2 rounded border border-border transition-colors hover:bg-muted",
+              style: { color: "#2874f0" },
+              children: "Brand Guidelines"
+            }
+          )
+        ] })
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$9({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const faqSections = [
+  {
+    section: "For Buyers",
+    faqs: [
+      {
+        q: "Do I need to create an account to buy on Shoapzy?",
+        a: "Yes, a registered account is required to place orders. Registration is free and takes less than 2 minutes. You need a valid email address and mobile number."
+      },
+      {
+        q: "How do I track my order?",
+        a: "Go to 'My Orders' in your account. Each order shows its current status: Placed, Processing, Shipped, Out for Delivery, or Delivered. Tracking details are updated automatically."
+      },
+      {
+        q: "Can I return a product?",
+        a: "Yes! Most products have a 10-day return window. Visit My Orders, select the order, and click 'Request Return'. Our delivery partner will collect the item from your address."
+      },
+      {
+        q: "How long does delivery take?",
+        a: "Standard delivery takes 5–7 business days. Express delivery is available in 100+ cities (2–3 days). Same-day delivery is available in select metros for orders placed before 12 PM."
+      },
+      {
+        q: "How do I apply a coupon code?",
+        a: "At the checkout page, you'll see a 'Apply Coupon' field. Enter your code and click 'Apply'. The discount will be calculated and shown before you confirm payment."
+      },
+      {
+        q: "Is Cash on Delivery available?",
+        a: "Yes, COD is available on eligible orders up to ₹10,000. COD availability depends on your pin code and the product category. You'll see if COD is available at checkout."
+      }
+    ]
+  },
+  {
+    section: "For Sellers",
+    faqs: [
+      {
+        q: "How do I register as a seller on Shoapzy?",
+        a: "Visit the 'Become a Seller' page and fill in your shop details, GST number, and bank details. Once submitted, our admin reviews your application within 24–48 hours."
+      },
+      {
+        q: "What commission does Shoapzy charge?",
+        a: "Shoapzy charges 10% commission per completed order. You keep 90% of every sale. Commission is deducted before payouts, which happen every 7 days."
+      },
+      {
+        q: "How do I add products with MRP pricing?",
+        a: "In your Seller Dashboard, go to 'Add Product'. Enter the MRP, set a discount percentage, and Shoapzy will automatically calculate and display the selling price to buyers."
+      },
+      {
+        q: "When will I receive payment for my orders?",
+        a: "Payouts are processed every 7 days for all successfully delivered orders. Funds are transferred to your registered bank account via NEFT/IMPS."
+      }
+    ]
+  },
+  {
+    section: "Account & Security",
+    faqs: [
+      {
+        q: "How do I reset my password?",
+        a: "Click 'Forgot Password' on the login page. Enter your registered email, and you'll receive a reset link within 5 minutes. Check your spam folder if you don't see it."
+      },
+      {
+        q: "Is my personal data safe with Shoapzy?",
+        a: "Yes. We use 256-bit SSL encryption and follow strict data protection practices. We never sell your personal information to third parties. Read our Privacy Policy for full details."
+      }
+    ]
+  }
+];
+function AccordionItem({ q: q2, a: a2 }) {
+  const [open, setOpen] = reactExports.useState(false);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-b border-border last:border-b-0", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        type: "button",
+        className: "w-full flex items-center justify-between py-4 px-1 text-left transition-colors hover:bg-muted/30",
+        onClick: () => setOpen(!open),
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium text-sm text-foreground pr-4", children: q2 }),
+          open ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            ChevronUp,
+            {
+              size: 16,
+              style: { color: "#2874f0" },
+              className: "flex-shrink-0"
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            ChevronDown,
+            {
+              size: 16,
+              className: "flex-shrink-0 text-muted-foreground"
+            }
+          )
+        ]
+      }
+    ),
+    open && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground pb-4 px-1 leading-relaxed", children: a2 })
+  ] });
+}
+function HelpFAQ() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Frequently Asked Questions" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Answers to common questions for buyers and sellers." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$9,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Help" },
+            { label: "FAQ" }
+          ]
+        }
+      ),
+      faqSections.map(({ section, faqs: faqs2 }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "h2",
+          {
+            className: "text-lg font-bold mb-3 flex items-center gap-2",
+            style: { color: "#2874f0" },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "w-1 h-5 rounded",
+                  style: { backgroundColor: "#2874f0", display: "inline-block" }
+                }
+              ),
+              section
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-card rounded-lg border border-border shadow-card px-5", children: faqs2.map(({ q: q2, a: a2 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(AccordionItem, { q: q2, a: a2 }, q2)) })
+      ] }, section)),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-6 border border-border text-center",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-lg mb-2", style: { color: "#2874f0" }, children: "Didn't find your answer?" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground mb-4", children: "Our customer support team is available 9 AM – 9 PM, 7 days a week." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3 justify-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "a",
+                {
+                  href: "mailto:support@shoapzy.com",
+                  className: "text-sm font-semibold text-white px-5 py-2 rounded transition-opacity hover:opacity-90",
+                  style: { backgroundColor: "#2874f0" },
+                  children: "Email Support"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "a",
+                {
+                  href: "tel:1800-123-4567",
+                  className: "text-sm font-semibold px-5 py-2 rounded border transition-colors hover:bg-muted",
+                  style: { color: "#2874f0", borderColor: "#2874f0" },
+                  children: "Call 1800-123-4567 (Toll Free)"
+                }
+              )
+            ] })
+          ]
+        }
+      )
+    ] })
+  ] });
+}
+function Breadcrumb$8({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const paymentMethods = [
+  {
+    Icon: CreditCard,
+    title: "Credit & Debit Cards",
+    desc: "Visa, Mastercard, RuPay, and American Express cards are accepted. 3D Secure authentication protects every transaction."
+  },
+  {
+    Icon: Smartphone,
+    title: "UPI Payments",
+    desc: "Pay instantly using any UPI app — PhonePe, Google Pay, Paytm, BHIM, and others. No transaction fees."
+  },
+  {
+    Icon: Banknote,
+    title: "Net Banking",
+    desc: "Direct bank transfer from 50+ Indian banks including SBI, HDFC, ICICI, Axis, Kotak, and all major banks."
+  },
+  {
+    Icon: Banknote,
+    title: "Cash on Delivery (COD)",
+    desc: "Pay in cash when your order arrives. Available on eligible orders up to ₹10,000. No advance payment needed."
+  },
+  {
+    Icon: CreditCard,
+    title: "Stripe (International Cards)",
+    desc: "Secure international card payments via Stripe. Supports all major global cards with real-time fraud detection."
+  },
+  {
+    Icon: Shield,
+    title: "Wallet Payments",
+    desc: "Shoapzy Loyalty Points can be redeemed as wallet credit at checkout. Earn points on every purchase."
+  }
+];
+const faqs = [
+  {
+    q: "Is my payment information secure?",
+    a: "Yes. Shoapzy uses 256-bit SSL encryption for all transactions. We do not store card numbers on our servers. All payments are processed through PCI-DSS certified payment gateways."
+  },
+  {
+    q: "Why was my payment declined?",
+    a: "Payments can be declined due to incorrect card details, insufficient funds, bank security checks, or network issues. Try again or contact your bank. You can also use a different payment method."
+  },
+  {
+    q: "How long does a refund take?",
+    a: "Refunds are processed within 5–7 business days after approval. Credit/debit card refunds take 3–5 business days additional. COD refunds are processed via NEFT within 7–10 business days."
+  },
+  {
+    q: "Can I pay in EMI?",
+    a: "EMI options are available on select bank credit cards for orders above ₹3,000. EMI availability is shown at checkout based on your payment method."
+  }
+];
+function HelpPayments() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Payments Help" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Payment methods, security, and refund information." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$8,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Help", href: "/help/faq" },
+            { label: "Payments" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "Accepted Payment Methods" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4", children: paymentMethods.map(({ Icon: Icon2, title, desc }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-5",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center mb-3",
+                  style: { backgroundColor: "#e8f0fe" },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { size: 18, style: { color: "#2874f0" } })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-foreground text-sm mb-1", children: title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: desc })
+            ]
+          },
+          title
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-6 mb-8 border border-border",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Lock, { size: 22, style: { color: "#2874f0" } }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-bold", style: { color: "#2874f0" }, children: "Payment Security" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-2 text-sm text-foreground", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-green-600 font-bold mt-0.5", children: "✓" }),
+                " 256-bit SSL encryption on all payment pages"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-green-600 font-bold mt-0.5", children: "✓" }),
+                " PCI-DSS Level 1 compliant payment processing"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-green-600 font-bold mt-0.5", children: "✓" }),
+                " 3D Secure authentication for card payments"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-green-600 font-bold mt-0.5", children: "✓" }),
+                " ",
+                "Real-time fraud monitoring and detection"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-green-600 font-bold mt-0.5", children: "✓" }),
+                " We never store full card numbers on our servers"
+              ] })
+            ] })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "Frequently Asked Questions" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: faqs.map(({ q: q2, a: a2 }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-5",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold text-foreground mb-2 text-sm", children: q2 }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: a2 })
+            ]
+          },
+          q2
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-3", children: "Still have questions?" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Link,
+          {
+            to: "/help/faq",
+            className: "text-sm font-semibold",
+            style: { color: "#2874f0" },
+            children: "Visit our FAQ page →"
+          }
+        )
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$7({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const infringementTypes = [
+  { value: "copyright", label: "Copyright Infringement" },
+  { value: "trademark", label: "Trademark Violation" },
+  { value: "counterfeit", label: "Counterfeit / Fake Products" },
+  { value: "patent", label: "Patent Infringement" },
+  { value: "other", label: "Other IP Violation" }
+];
+function HelpReportInfringement() {
+  const [submitted, setSubmitted] = reactExports.useState(false);
+  const [form, setForm] = reactExports.useState({
+    name: "",
+    email: "",
+    company: "",
+    type: "",
+    productUrl: "",
+    description: "",
+    ownershipProof: ""
+  });
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Report Infringement" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Report copyright, trademark, or other intellectual property violations." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$7,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Help", href: "/help/faq" },
+            { label: "Report Infringement" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-5 mb-8 border border-border flex gap-4",
+          style: { backgroundColor: "#fff8e8" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              TriangleAlert,
+              {
+                size: 22,
+                className: "flex-shrink-0 mt-0.5",
+                style: { color: "#ff6000" }
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-sm mb-1", style: { color: "#ff6000" }, children: "Important Notice" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground", children: "Shoapzy takes intellectual property rights seriously. False or misleading reports may result in account suspension. By submitting this form, you confirm that the information provided is accurate to the best of your knowledge." })
+            ] })
+          ]
+        }
+      ),
+      submitted ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-card rounded-lg border border-border shadow-card p-8 text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          CircleCheckBig,
+          {
+            size: 48,
+            className: "mx-auto mb-4",
+            style: { color: "#2874f0" }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold text-foreground mb-2", children: "Report Submitted" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Thank you for your report. Our Trust & Safety team will review it within 3–5 business days and take appropriate action. We'll send updates to your registered email." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Link,
+          {
+            to: "/",
+            className: "text-sm font-semibold",
+            style: { color: "#2874f0" },
+            children: "← Back to Home"
+          }
+        )
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "form",
+        {
+          onSubmit: handleSubmit,
+          className: "bg-card rounded-lg border border-border shadow-card p-6 space-y-5",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-bold text-foreground mb-2", children: "Infringement Report Form" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "label",
+                  {
+                    htmlFor: "report-name",
+                    className: "block text-xs font-semibold text-foreground mb-1",
+                    children: "Your Full Name *"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    id: "report-name",
+                    required: true,
+                    name: "name",
+                    value: form.name,
+                    onChange: handleChange,
+                    placeholder: "Rahul Sharma",
+                    className: "w-full input-field text-sm"
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "label",
+                  {
+                    htmlFor: "report-email",
+                    className: "block text-xs font-semibold text-foreground mb-1",
+                    children: "Email Address *"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "input",
+                  {
+                    id: "report-email",
+                    required: true,
+                    type: "email",
+                    name: "email",
+                    value: form.email,
+                    onChange: handleChange,
+                    placeholder: "rahul@example.com",
+                    className: "w-full input-field text-sm"
+                  }
+                )
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "label",
+                {
+                  htmlFor: "report-company",
+                  className: "block text-xs font-semibold text-foreground mb-1",
+                  children: "Company / Brand Name (if applicable)"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  id: "report-company",
+                  name: "company",
+                  value: form.company,
+                  onChange: handleChange,
+                  placeholder: "Your brand or company name",
+                  className: "w-full input-field text-sm"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "label",
+                {
+                  htmlFor: "report-type",
+                  className: "block text-xs font-semibold text-foreground mb-1",
+                  children: "Type of Infringement *"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "select",
+                {
+                  id: "report-type",
+                  required: true,
+                  name: "type",
+                  value: form.type,
+                  onChange: handleChange,
+                  className: "w-full input-field text-sm",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Select infringement type..." }),
+                    infringementTypes.map(({ value, label }) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value, children: label }, value))
+                  ]
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "label",
+                {
+                  htmlFor: "report-productUrl",
+                  className: "block text-xs font-semibold text-foreground mb-1",
+                  children: "Product URL or Listing ID *"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  id: "report-productUrl",
+                  required: true,
+                  name: "productUrl",
+                  value: form.productUrl,
+                  onChange: handleChange,
+                  placeholder: "https://shoapzy.com/product/... or product ID",
+                  className: "w-full input-field text-sm"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "label",
+                {
+                  htmlFor: "report-description",
+                  className: "block text-xs font-semibold text-foreground mb-1",
+                  children: "Description of Infringement *"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "textarea",
+                {
+                  id: "report-description",
+                  required: true,
+                  name: "description",
+                  value: form.description,
+                  onChange: handleChange,
+                  rows: 4,
+                  placeholder: "Describe how this product/listing violates your intellectual property rights...",
+                  className: "w-full input-field text-sm resize-none"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "label",
+                {
+                  htmlFor: "report-ownershipProof",
+                  className: "block text-xs font-semibold text-foreground mb-1",
+                  children: "Proof of Ownership"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "textarea",
+                {
+                  id: "report-ownershipProof",
+                  name: "ownershipProof",
+                  value: form.ownershipProof,
+                  onChange: handleChange,
+                  rows: 3,
+                  placeholder: "Describe your ownership evidence (registration number, certificate details, etc.)",
+                  className: "w-full input-field text-sm resize-none"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "submit",
+                className: "w-full text-sm font-semibold text-white py-3 rounded transition-opacity hover:opacity-90",
+                style: { backgroundColor: "#2874f0" },
+                children: "Submit Report"
+              }
+            )
+          ]
+        }
+      )
+    ] })
+  ] });
+}
+function Breadcrumb$6({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const cancelSteps = [
+  "Go to My Orders page",
+  "Select the order you want to cancel",
+  "Click 'Cancel Order' and choose a reason",
+  "Confirm cancellation — you'll receive a confirmation email",
+  "Refund processed within 5–7 business days"
+];
+const returnSteps = [
+  "Go to My Orders page and find the delivered order",
+  "Click 'Request Return' and select items to return",
+  "Choose return reason (damaged, wrong item, not as described, etc.)",
+  "Schedule pickup — our delivery partner will collect the item",
+  "Item inspected within 2–3 business days of receipt",
+  "Refund processed after successful inspection"
+];
+const nonReturnable = [
+  "Perishable goods (food, grocery items)",
+  "Personal care & hygiene products once opened",
+  "Digital products and software licenses",
+  "Customized / personalized items",
+  "Items marked as 'Non-Returnable' in product listing",
+  "Underwear and swimwear for hygiene reasons"
+];
+function HelpReturns() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Cancellation & Returns" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "How to cancel orders, request returns, and get refunds." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$6,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Help", href: "/help/faq" },
+            { label: "Cancellation & Returns" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-4 mb-8 flex items-center gap-4 border border-border",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              RotateCcw,
+              {
+                size: 28,
+                style: { color: "#2874f0" },
+                className: "flex-shrink-0"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-bold text-base", style: { color: "#2874f0" }, children: "10-Day Return Window" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground", children: "Most items can be returned within 10 days of delivery. Return must be in original condition with tags." })
+            ] })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "h2",
+          {
+            className: "text-xl font-bold mb-4 flex items-center gap-2",
+            style: { color: "#2874f0" },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CircleX, { size: 20 }),
+              " Order Cancellation"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "You can cancel your order any time before it is shipped. Once shipped, cancellation is not possible — you'll need to request a return after delivery." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ol", { className: "space-y-2", children: cancelSteps.map((step, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "li",
+          {
+            className: "flex items-start gap-3 text-sm text-foreground",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold mt-0.5",
+                  style: { backgroundColor: "#2874f0" },
+                  children: i + 1
+                }
+              ),
+              step
+            ]
+          },
+          step
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "h2",
+          {
+            className: "text-xl font-bold mb-4 flex items-center gap-2",
+            style: { color: "#2874f0" },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { size: 20 }),
+              " How to Return an Item"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ol", { className: "space-y-2", children: returnSteps.map((step, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "li",
+          {
+            className: "flex items-start gap-3 text-sm text-foreground",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold mt-0.5",
+                  style: { backgroundColor: "#2874f0" },
+                  children: i + 1
+                }
+              ),
+              step
+            ]
+          },
+          step
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "h2",
+          {
+            className: "text-xl font-bold mb-4 flex items-center gap-2",
+            style: { color: "#2874f0" },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 20 }),
+              " Refund Timeline"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-3 gap-4", children: [
+          { method: "Credit / Debit Card", time: "5–7 business days" },
+          { method: "UPI / Net Banking", time: "3–5 business days" },
+          { method: "Cash on Delivery", time: "7–10 business days (NEFT)" }
+        ].map(({ method, time }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "p-4 rounded-lg border border-border",
+            style: { backgroundColor: "#f8f9ff" },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mb-1", children: method }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-bold text-sm", style: { color: "#2874f0" }, children: time })
+            ]
+          },
+          method
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 flex items-center gap-2 text-foreground", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { size: 20, style: { color: "#ff6000" } }),
+          " ",
+          "Non-Returnable Items"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: nonReturnable.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "li",
+          {
+            className: "flex items-start gap-2 text-sm text-foreground",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                CircleCheckBig,
+                {
+                  size: 14,
+                  className: "flex-shrink-0 mt-0.5",
+                  style: { color: "#ff6000" }
+                }
+              ),
+              item
+            ]
+          },
+          item
+        )) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "mt-4 p-3 rounded border",
+            style: { backgroundColor: "#fff8f5", borderColor: "#ff6000" },
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs", style: { color: "#ff6000" }, children: "Items must be returned in original packaging with all tags and accessories intact. Used, washed, or damaged items will not be accepted for return." })
+          }
+        )
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$5({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const shippingOptions = [
+  {
+    Icon: Truck,
+    title: "Standard Delivery",
+    time: "5–7 Business Days",
+    cost: "₹40 flat / Free above ₹500",
+    desc: "Available across all 29 states and 7 UTs in India. Tracking provided after dispatch."
+  },
+  {
+    Icon: Clock,
+    title: "Express Delivery",
+    time: "2–3 Business Days",
+    cost: "₹99 flat",
+    desc: "Available in 100+ cities. Order before 2 PM for same-day dispatch. Real-time tracking included."
+  },
+  {
+    Icon: Package,
+    title: "Same-Day Delivery",
+    time: "Within 24 hours",
+    cost: "₹149 flat",
+    desc: "Available in select metro cities (Mumbai, Delhi, Bangalore, Hyderabad, Chennai, Pune). Order before 12 PM."
+  }
+];
+const trackingSteps = [
+  {
+    label: "Order Placed",
+    desc: "You will receive a confirmation email and SMS immediately."
+  },
+  {
+    label: "Processing",
+    desc: "Seller prepares your order for shipment (1–2 business days)."
+  },
+  {
+    label: "Shipped",
+    desc: "Your order is picked up by our delivery partner. Tracking link shared."
+  },
+  {
+    label: "Out for Delivery",
+    desc: "Your order is with the delivery agent and will arrive today."
+  },
+  {
+    label: "Delivered",
+    desc: "Order delivered to your address. Rate your experience!"
+  }
+];
+function HelpShipping() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Shipping Information" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Delivery timelines, tracking, and free shipping details." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$5,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Help", href: "/help/faq" },
+            { label: "Shipping" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-4 mb-8 border border-border flex items-center gap-4",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Truck,
+              {
+                size: 28,
+                style: { color: "#2874f0" },
+                className: "flex-shrink-0"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-bold text-base", style: { color: "#2874f0" }, children: "Free Shipping on orders above ₹500!" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground", children: "Add items worth ₹500 or more to get free standard delivery across India." })
+            ] })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "Delivery Options" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-3 gap-4", children: shippingOptions.map(({ Icon: Icon2, title, time, cost, desc }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-5",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "w-10 h-10 rounded-full flex items-center justify-center mb-3",
+                  style: { backgroundColor: "#e8f0fe" },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { size: 18, style: { color: "#2874f0" } })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-foreground mb-1", children: title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "p",
+                {
+                  className: "text-xs font-semibold mb-1",
+                  style: { color: "#2874f0" },
+                  children: time
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground mb-2", children: [
+                "Cost: ",
+                cost
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: desc })
+            ]
+          },
+          title
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 text-foreground flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { size: 20, style: { color: "#2874f0" } }),
+          " Order Tracking"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground mb-5", children: [
+          "Track your order from your",
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: "/orders",
+              className: "font-semibold",
+              style: { color: "#2874f0" },
+              children: "My Orders"
+            }
+          ),
+          " ",
+          "page. Here's what each status means:"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: trackingSteps.map(({ label, desc }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 items-start", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center flex-shrink-0", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold",
+                style: { backgroundColor: "#2874f0" },
+                children: i + 1
+              }
+            ),
+            i < trackingSteps.length - 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "w-0.5 h-5 mt-1",
+                style: { backgroundColor: "#2874f0" }
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-sm text-foreground", children: label }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: desc })
+          ] })
+        ] }, label)) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "Shipping Policies" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-3", children: [
+          "Orders are dispatched within 1–2 business days of payment confirmation.",
+          "Delivery timelines may be extended during festive seasons (Diwali, Navratri, etc.).",
+          "Shoapzy ships to all pin codes in India. Remote areas may have extended timelines.",
+          "If your order is delayed beyond the promised date, you may be eligible for a shipping refund.",
+          "Multiple items from the same seller may be shipped together or separately."
+        ].map((point) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "li",
+          {
+            className: "flex items-start gap-2 text-sm text-foreground",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                CircleCheckBig,
+                {
+                  size: 14,
+                  className: "flex-shrink-0 mt-0.5",
+                  style: { color: "#2874f0" }
+                }
+              ),
+              point
+            ]
+          },
+          point
+        )) })
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$4({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+function Section$2({
+  title,
+  children
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-5", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-bold mb-3", style: { color: "#2874f0" }, children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-foreground space-y-2 leading-relaxed", children })
+  ] });
+}
+function PolicyPrivacy() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Privacy Policy" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Effective Date: January 1, 2026 · Last Updated: April 1, 2026" })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$4,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Policy" },
+            { label: "Privacy Policy" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: "rounded-lg p-4 mb-6 border border-border text-sm",
+          style: { backgroundColor: "#e8f0fe" },
+          children: "At Shoapzy, your privacy is important to us. This policy explains what data we collect, how we use it, and your rights over your information."
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { title: "1. Information We Collect", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Account Information:" }),
+          " Name, email address, phone number, and login credentials when you register."
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Transaction Information:" }),
+          " Order history, delivery addresses, payment method type (not full card numbers), and order amounts."
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Device & Usage Data:" }),
+          " IP address, browser type, pages visited, time spent, referring URLs, and device identifiers."
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Communications:" }),
+          " Customer support interactions, reviews, ratings, and seller-buyer messages."
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Seller Information:" }),
+          " Business name, GST number, bank account details (for payouts), and product listings."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section$2, { title: "2. How We Use Your Information", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Processing and fulfilling your orders" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sending order confirmations, tracking updates, and delivery notifications" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Personalizing product recommendations based on your browsing history" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Processing seller payouts and commission calculations" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Preventing fraud and maintaining platform security" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Improving our platform through anonymized usage analysis" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Complying with legal obligations under Indian law" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sending promotional offers (with your consent, opt-out available)" })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { title: "3. Information Sharing", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Shoapzy does not sell your personal information. We share information with:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1 mt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Sellers:" }),
+            " Only the delivery address and order details needed to fulfill your order"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Delivery Partners:" }),
+            " Name, phone, and address for order delivery"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Payment Processors:" }),
+            " Transaction data for payment processing (Stripe, UPI providers)"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Legal Authorities:" }),
+            " When required by Indian law or court order"
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { title: "4. Cookies & Tracking", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "We use cookies and similar technologies to:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1 mt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Keep you logged in (session cookies)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Remember your cart and wishlist items" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Analyze site performance (analytics cookies)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Show relevant product advertisements (marketing cookies)" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2", children: "You can control cookies through your browser settings. Disabling cookies may affect some platform features." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section$2, { title: "5. Data Retention", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "We retain your personal data for as long as your account is active or as needed to provide services. Order history is retained for 7 years for tax and legal compliance. You may request deletion of your account data, subject to legal retention requirements." }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { title: "6. Your Rights", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Access:" }),
+            " Request a copy of your personal data"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Correction:" }),
+            " Update inaccurate information in your account settings"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Deletion:" }),
+            " Request deletion of your account and associated data"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Opt-out:" }),
+            " Unsubscribe from marketing emails at any time"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Portability:" }),
+            " Request your data in a machine-readable format"
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2", children: "To exercise your rights, contact: privacy@shoapzy.com" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section$2, { title: "7. Children's Privacy", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Shoapzy is not intended for users under 18 years of age. We do not knowingly collect personal information from minors. If you believe a minor has provided us with personal information, please contact us immediately." }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { title: "8. Contact Us", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Data Protection Officer:" }),
+          " privacy@shoapzy.com"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Address:" }),
+          " Shoapzy Commerce Private Limited, WeWork Galaxy, 43 Residency Road, Bengaluru, Karnataka – 560025"
+        ] })
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$3({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+function Section$1({
+  title,
+  children
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-5", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-bold mb-3", style: { color: "#2874f0" }, children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-foreground space-y-2 leading-relaxed", children })
+  ] });
+}
+function PolicyReturnPolicy() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Return Policy" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Effective Date: January 1, 2026 · Last Updated: April 1, 2026" })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$3,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Policy" },
+            { label: "Return Policy" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { title: "1. Return Eligibility", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          "Items may be returned within ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "10 days of delivery" }),
+          " ",
+          "provided they meet the following conditions:"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1 mt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Item is in original condition with all tags attached" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Original packaging is intact and undamaged" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "All accessories, manuals, and free gifts are included" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Item has not been used, washed, or altered in any way" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Return request is raised within the return window" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section$1, { title: "2. Return Process", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "list-decimal pl-5 space-y-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+          "Visit ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "My Orders" }),
+          " and select the order"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+          "Click ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Request Return" }),
+          " and choose the item(s)"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Select your return reason from the dropdown" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Schedule a pickup — our delivery partner will collect within 2–3 business days" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Item will be inspected upon receipt at our warehouse" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Refund processed within 5–7 business days after successful inspection" })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { title: "3. Non-Returnable Items", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The following categories are not eligible for return:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1 mt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Perishable goods (food, fresh produce, dairy)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Personal care and hygiene products once opened" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Digital goods, software licenses, and vouchers" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Customized or personalized products" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Underwear and swimwear" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Hazardous materials and flammable products" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Products explicitly marked as 'Non-Returnable' in the listing" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section$1, { title: "4. Refund Methods & Timelines", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-3 gap-3 mt-2", children: [
+        { method: "Credit / Debit Card", time: "5–7 business days" },
+        { method: "UPI / Net Banking", time: "3–5 business days" },
+        { method: "Cash on Delivery", time: "7–10 business days" }
+      ].map(({ method, time }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "p-3 rounded-lg border border-border",
+          style: { backgroundColor: "#f8f9ff" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: method }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "p",
+              {
+                className: "font-bold text-sm mt-1",
+                style: { color: "#2874f0" },
+                children: time
+              }
+            )
+          ]
+        },
+        method
+      )) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { title: "5. Damaged or Defective Items", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "If you receive a damaged, defective, or wrong item, please raise a return request immediately. Provide photos of the damage when submitting your request. Such returns are given priority and processed faster." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2", children: "For items damaged during delivery, you may be eligible for an immediate replacement or full refund without needing to return the item." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section$1, { title: "6. Seller Return Obligations", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "All sellers on Shoapzy are required to honor valid return requests. Sellers who repeatedly reject valid returns or provide inaccurate product descriptions may have their accounts suspended. Shoapzy reserves the right to approve returns on behalf of sellers in case of disputes." }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { title: "7. Contact for Returns Issues", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "If you face any difficulty with your return or refund, contact our support team:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
+          " returns@shoapzy.com"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Phone:" }),
+          " 1800-123-4567 (Toll Free, 9 AM – 9 PM)"
+        ] })
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$2({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const securityFeatures = [
+  {
+    Icon: Lock,
+    title: "256-bit SSL Encryption",
+    desc: "Every page on Shoapzy is served over HTTPS with TLS 1.3 encryption. Your connection is always secure."
+  },
+  {
+    Icon: Shield,
+    title: "PCI-DSS Compliance",
+    desc: "Our payment processing meets the highest global standard (PCI-DSS Level 1). Card details are never stored on our servers."
+  },
+  {
+    Icon: Eye,
+    title: "Fraud Detection",
+    desc: "Real-time AI-powered fraud monitoring flags suspicious transactions. Unusual login attempts trigger automatic alerts."
+  },
+  {
+    Icon: Server,
+    title: "Data Security",
+    desc: "User data is stored on secure distributed infrastructure with automatic backups, encryption at rest, and strict access controls."
+  }
+];
+function PolicySecurity() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Security" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "How we protect your data, payments, and privacy on Shoapzy." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$2,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Policy" },
+            { label: "Security" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "rounded-lg p-5 mb-8 flex items-center gap-4 border border-border",
+          style: { backgroundColor: "#e8f0fe" },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Shield,
+              {
+                size: 32,
+                style: { color: "#2874f0" },
+                className: "flex-shrink-0"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-bold text-base", style: { color: "#2874f0" }, children: "Your security is our top priority" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground", children: "Shoapzy uses bank-grade security to protect every transaction and user data." })
+            ] })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold mb-4 text-foreground", children: "Security Infrastructure" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: securityFeatures.map(({ Icon: Icon2, title, desc }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "bg-card rounded-lg border border-border shadow-card p-5 flex gap-4",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center",
+                  style: { backgroundColor: "#e8f0fe" },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { size: 18, style: { color: "#2874f0" } })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-foreground text-sm mb-1", children: title }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: desc })
+              ] })
+            ]
+          },
+          title
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-bold mb-3", style: { color: "#2874f0" }, children: "Secure Payment Practices" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: [
+          "All payments processed through certified, encrypted payment gateways",
+          "Credit/Debit card numbers are never stored on Shoapzy servers",
+          "3D Secure (OTP) authentication required for card payments",
+          "UPI transactions are validated through NPCI's secure infrastructure",
+          "All COD amounts are tracked and verified through our logistics partners",
+          "Stripe integration provides additional fraud detection for international cards"
+        ].map((point) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "li",
+          {
+            className: "flex items-start gap-2 text-sm text-foreground",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                CircleCheckBig,
+                {
+                  size: 14,
+                  className: "flex-shrink-0 mt-0.5",
+                  style: { color: "#2874f0" }
+                }
+              ),
+              point
+            ]
+          },
+          point
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-bold mb-3", style: { color: "#2874f0" }, children: "Protect Your Account" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: [
+          "Use a strong, unique password for your Shoapzy account",
+          "Never share your login credentials with anyone",
+          "Shoapzy will never ask for your password via email or phone",
+          "Log out of your account on shared or public devices",
+          "Review your order history regularly for unauthorized activity",
+          "Report suspicious activity immediately to security@shoapzy.com"
+        ].map((tip) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "li",
+          {
+            className: "flex items-start gap-2 text-sm text-foreground",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                CircleCheckBig,
+                {
+                  size: 14,
+                  className: "flex-shrink-0 mt-0.5",
+                  style: { color: "#2874f0" }
+                }
+              ),
+              tip
+            ]
+          },
+          tip
+        )) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-bold mb-3", style: { color: "#2874f0" }, children: "Report a Security Vulnerability" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-3", children: "If you discover a security vulnerability on Shoapzy, please responsibly disclose it to our security team. We take all reports seriously and respond within 48 hours." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-foreground", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: "mailto:security@shoapzy.com",
+              className: "font-semibold",
+              style: { color: "#2874f0" },
+              children: "security@shoapzy.com"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-2", children: "Please do not disclose security issues publicly until we have had a chance to address them." })
+      ] })
+    ] })
+  ] });
+}
+function Breadcrumb$1({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+const sitemapSections = [
+  {
+    title: "Main",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Cart", href: "/cart" },
+      { label: "My Orders", href: "/orders" },
+      { label: "Wishlist", href: "/wishlist" },
+      { label: "Compare Products", href: "/compare" },
+      { label: "Saved Addresses", href: "/saved-addresses" },
+      { label: "Referral Program", href: "/referral" },
+      { label: "Login / Register", href: "/login" }
+    ]
+  },
+  {
+    title: "Seller",
+    links: [
+      { label: "Become a Seller", href: "/seller/register" },
+      { label: "Seller Dashboard", href: "/seller/dashboard" }
+    ]
+  },
+  {
+    title: "About",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Press & Media", href: "/press" },
+      { label: "Blog", href: "/blog" },
+      { label: "Corporate Information", href: "/corporate" }
+    ]
+  },
+  {
+    title: "Help",
+    links: [
+      { label: "FAQ", href: "/help/faq" },
+      { label: "Payments", href: "/help/payments" },
+      { label: "Shipping", href: "/help/shipping" },
+      { label: "Cancellation & Returns", href: "/help/returns" },
+      { label: "Report Infringement", href: "/help/report-infringement" }
+    ]
+  },
+  {
+    title: "Policies",
+    links: [
+      { label: "Return Policy", href: "/policy/return-policy" },
+      { label: "Terms of Use", href: "/policy/terms" },
+      { label: "Security", href: "/policy/security" },
+      { label: "Privacy Policy", href: "/policy/privacy" },
+      { label: "Sitemap", href: "/policy/sitemap" }
+    ]
+  }
+];
+function PolicySitemap() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Sitemap" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "A complete list of all pages on Shoapzy." })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb$1,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Policy" },
+            { label: "Sitemap" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6", children: sitemapSections.map(({ title, links }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "bg-card rounded-lg border border-border shadow-card p-5",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "h2",
+              {
+                className: "text-xs font-bold tracking-widest uppercase mb-4",
+                style: { color: "#2874f0" },
+                children: title
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: links.map(({ label, href }) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              Link,
+              {
+                to: href,
+                className: "flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors group",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    ExternalLink,
+                    {
+                      size: 12,
+                      className: "flex-shrink-0 text-muted-foreground group-hover:text-primary transition-colors"
+                    }
+                  ),
+                  label
+                ]
+              }
+            ) }, label)) })
+          ]
+        },
+        title
+      )) })
+    ] })
+  ] });
+}
+function Breadcrumb({ items }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "text-xs text-muted-foreground mb-6 flex items-center gap-1 flex-wrap", children: items.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+    i > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "/" }),
+    item.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Link,
+      {
+        to: item.href,
+        className: "hover:text-primary transition-colors",
+        children: item.label
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#2874f0" }, className: "font-medium", children: item.label })
+  ] }, item.label)) });
+}
+function Section({
+  title,
+  children
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "bg-card rounded-lg border border-border shadow-card p-6 mb-5", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-bold mb-3", style: { color: "#2874f0" }, children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-foreground space-y-2 leading-relaxed", children })
+  ] });
+}
+function PolicyTerms() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: { backgroundColor: "#2874f0" },
+        className: "text-white py-10 px-4",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShoppingBag, { size: 28, className: "text-orange-300" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl tracking-tight", children: "Shoapzy" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold mb-2", children: "Terms of Use" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-blue-100 text-sm", children: "Effective Date: January 1, 2026 · Last Updated: April 1, 2026" })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-4xl mx-auto px-4 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Breadcrumb,
+        {
+          items: [
+            { label: "Home", href: "/" },
+            { label: "Policy" },
+            { label: "Terms of Use" }
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: "rounded-lg p-4 mb-6 border border-border text-sm",
+          style: { backgroundColor: "#e8f0fe" },
+          children: "Please read these Terms of Use carefully before using the Shoapzy platform. By accessing or using our services, you agree to be bound by these terms."
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "1. Acceptance of Terms", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: `By accessing or using Shoapzy's website, mobile application, or any services (collectively, the "Platform"), you agree to these Terms of Use and our Privacy Policy. If you do not agree, you must not use the Platform.` }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "These terms apply to all users including buyers, sellers, and visitors." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "2. User Registration", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "You must be at least 18 years of age to create an account. You agree to provide accurate, current, and complete registration information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "You must notify us immediately at security@shoapzy.com if you suspect unauthorized access to your account." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { title: "3. Buyer Obligations", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Provide accurate delivery address and contact information" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Make timely payment for orders placed" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Not misuse the return and refund system" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Not submit fraudulent reviews or ratings" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Comply with all applicable Indian laws when purchasing products" })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { title: "4. Seller Obligations", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sellers must obtain admin approval before listing products" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "All product descriptions, images, and prices must be accurate" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sellers must not list counterfeit, illegal, or prohibited products" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sellers must fulfill orders within agreed timelines" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sellers must maintain adequate stock levels for listed products" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sellers agree to the 10% commission structure per completed order" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Sellers must comply with all applicable tax obligations (GST, TDS, etc.)" })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "5. Prohibited Activities", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The following activities are strictly prohibited on Shoapzy:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-1 mt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Listing or selling illegal, counterfeit, or hazardous products" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Creating fake accounts or impersonating other users" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Manipulating product reviews or ratings" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Using automated bots or scrapers without permission" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Attempting to circumvent security measures" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Engaging in price manipulation or collusion" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Conducting transactions outside the Shoapzy platform" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "6. Intellectual Property", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "All content on the Shoapzy platform including logos, designs, text, and software is owned by Shoapzy Commerce Private Limited or its licensors. You may not copy, reproduce, or distribute any content without explicit written permission." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "By uploading product content, sellers grant Shoapzy a non-exclusive license to use, display, and promote such content on the platform." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "7. Limitation of Liability", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Shoapzy acts as an intermediary marketplace. We are not the seller of record for products listed by third-party sellers. We are not liable for product quality, authenticity, or fitness for purpose of seller-listed items." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Our liability in any circumstance shall not exceed the order value of the specific transaction in dispute." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { title: "8. Governing Law", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "These Terms of Use shall be governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Mumbai, Maharashtra, India." }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "9. Contact", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
+          " legal@shoapzy.com"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Address:" }),
+          " Shoapzy Commerce Private Limited, WeWork Galaxy, 43 Residency Road, Bengaluru, Karnataka – 560025"
+        ] })
+      ] })
+    ] })
+  ] });
+}
+const SavedAddresses = reactExports.lazy(() => __vitePreload(() => import("./SavedAddresses-4vZj5xVq.js"), true ? [] : void 0));
+const Compare = reactExports.lazy(() => __vitePreload(() => import("./Compare-pzm-eej5.js"), true ? [] : void 0));
+const Referral = reactExports.lazy(() => __vitePreload(() => import("./Referral-CHH2Bfoh.js"), true ? [] : void 0));
 const REGISTER_RETRY_DELAY_MS = 1200;
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -44261,6 +47167,33 @@ function AppRoutes() {
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/login", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Login, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/setup-admin", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SetupAdmin, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/seller/:principalId", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SellerProfile, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/about", element: /* @__PURE__ */ jsxRuntimeExports.jsx(AboutUs, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/careers", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Careers, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/press", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Press, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/blog", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Blog, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/corporate", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Corporate, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/help/payments", element: /* @__PURE__ */ jsxRuntimeExports.jsx(HelpPayments, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/help/shipping", element: /* @__PURE__ */ jsxRuntimeExports.jsx(HelpShipping, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/help/returns", element: /* @__PURE__ */ jsxRuntimeExports.jsx(HelpReturns, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/help/faq", element: /* @__PURE__ */ jsxRuntimeExports.jsx(HelpFAQ, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Route,
+        {
+          path: "/help/report-infringement",
+          element: /* @__PURE__ */ jsxRuntimeExports.jsx(HelpReportInfringement, {})
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Route,
+        {
+          path: "/policy/return-policy",
+          element: /* @__PURE__ */ jsxRuntimeExports.jsx(PolicyReturnPolicy, {})
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/policy/terms", element: /* @__PURE__ */ jsxRuntimeExports.jsx(PolicyTerms, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/policy/security", element: /* @__PURE__ */ jsxRuntimeExports.jsx(PolicySecurity, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/policy/privacy", element: /* @__PURE__ */ jsxRuntimeExports.jsx(PolicyPrivacy, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/policy/sitemap", element: /* @__PURE__ */ jsxRuntimeExports.jsx(PolicySitemap, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Route,
         {
@@ -44311,6 +47244,7 @@ export {
   ArrowLeftRight as A,
   BookMarked as B,
   CircleCheck as C,
+  ExternalLink as E,
   Gift as G,
   Link as L,
   MapPin as M,

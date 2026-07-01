@@ -44,11 +44,24 @@ export default function Cart() {
 
   const discount = mrpTotal - sellingTotal;
 
+  const removeItemFromCart = async (
+    productId: string,
+    remainingItems: CartItem[],
+  ) => {
+    // Backend has no removeFromCart — clear and re-add remaining items
+    await actor!.clearCallerCart();
+    for (const item of remainingItems.filter(
+      (i) => i.productId !== productId,
+    )) {
+      await actor!.addToCart(item);
+    }
+    queryClient.invalidateQueries({ queryKey: ["cart"] });
+  };
+
   const handleRemove = async (productId: string) => {
     setUpdatingId(productId);
     try {
-      await actor!.removeFromCart(productId);
-      queryClient.invalidateQueries({ queryKey: ["cart"] });
+      await removeItemFromCart(productId, cartItems);
     } finally {
       setUpdatingId(null);
     }
@@ -210,11 +223,17 @@ export default function Cart() {
                             } else {
                               setUpdatingId(item.productId);
                               try {
-                                await actor!.removeFromCart(item.productId);
                                 const updatedItem: CartItem = {
                                   ...item,
                                   quantity: BigInt(Number(item.quantity) - 1),
                                 };
+                                const others = cartItems.filter(
+                                  (i) => i.productId !== item.productId,
+                                );
+                                await actor!.clearCallerCart();
+                                for (const other of others) {
+                                  await actor!.addToCart(other);
+                                }
                                 await actor!.addToCart(updatedItem);
                                 queryClient.invalidateQueries({
                                   queryKey: ["cart"],
@@ -238,11 +257,17 @@ export default function Cart() {
                           onClick={async () => {
                             setUpdatingId(item.productId);
                             try {
-                              await actor!.removeFromCart(item.productId);
                               const updatedItem: CartItem = {
                                 ...item,
                                 quantity: BigInt(Number(item.quantity) + 1),
                               };
+                              const others = cartItems.filter(
+                                (i) => i.productId !== item.productId,
+                              );
+                              await actor!.clearCallerCart();
+                              for (const other of others) {
+                                await actor!.addToCart(other);
+                              }
                               await actor!.addToCart(updatedItem);
                               queryClient.invalidateQueries({
                                 queryKey: ["cart"],

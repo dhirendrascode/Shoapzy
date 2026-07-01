@@ -18,6 +18,27 @@ import SellerRegister from "./pages/SellerRegister";
 import SetupAdmin from "./pages/SetupAdmin";
 import Wishlist from "./pages/Wishlist";
 
+// About section pages
+import AboutUs from "./pages/AboutUs";
+import Blog from "./pages/Blog";
+import Careers from "./pages/Careers";
+import Corporate from "./pages/Corporate";
+import Press from "./pages/Press";
+
+import HelpFAQ from "./pages/HelpFAQ";
+// Help section pages
+import HelpPayments from "./pages/HelpPayments";
+import HelpReportInfringement from "./pages/HelpReportInfringement";
+import HelpReturns from "./pages/HelpReturns";
+import HelpShipping from "./pages/HelpShipping";
+
+import PolicyPrivacy from "./pages/PolicyPrivacy";
+// Policy section pages
+import PolicyReturnPolicy from "./pages/PolicyReturnPolicy";
+import PolicySecurity from "./pages/PolicySecurity";
+import PolicySitemap from "./pages/PolicySitemap";
+import PolicyTerms from "./pages/PolicyTerms";
+
 // Batch 5 pages — lazy loaded
 const SavedAddresses = lazy(() => import("./pages/SavedAddresses"));
 const Compare = lazy(() => import("./pages/Compare"));
@@ -174,6 +195,33 @@ function AppRoutes() {
           <Route path="/login" element={<Login />} />
           <Route path="/setup-admin" element={<SetupAdmin />} />
           <Route path="/seller/:principalId" element={<SellerProfile />} />
+
+          {/* About section routes */}
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/press" element={<Press />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/corporate" element={<Corporate />} />
+
+          {/* Help section routes */}
+          <Route path="/help/payments" element={<HelpPayments />} />
+          <Route path="/help/shipping" element={<HelpShipping />} />
+          <Route path="/help/returns" element={<HelpReturns />} />
+          <Route path="/help/faq" element={<HelpFAQ />} />
+          <Route
+            path="/help/report-infringement"
+            element={<HelpReportInfringement />}
+          />
+
+          {/* Policy section routes */}
+          <Route
+            path="/policy/return-policy"
+            element={<PolicyReturnPolicy />}
+          />
+          <Route path="/policy/terms" element={<PolicyTerms />} />
+          <Route path="/policy/security" element={<PolicySecurity />} />
+          <Route path="/policy/privacy" element={<PolicyPrivacy />} />
+          <Route path="/policy/sitemap" element={<PolicySitemap />} />
 
           {/* Batch 5 routes */}
           <Route

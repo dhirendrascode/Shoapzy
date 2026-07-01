@@ -354,27 +354,28 @@ export default function SellerDashboard() {
     enabled,
   });
 
-  const { data: orders = [] } = useQuery({
+  const { data: ordersRaw = [] } = useQuery({
     queryKey: ["sellerOrders", principalStr],
     queryFn: () => actor!.getSellerOrders(identity!.getPrincipal()),
     enabled,
   });
+  const orders = ordersRaw as unknown as Order[];
 
   const { data: returnRequests = {} } = useQuery({
-    queryKey: [
-      "sellerReturnRequests",
-      principalStr,
-      (orders as Order[]).length,
-    ],
+    queryKey: ["sellerReturnRequests", principalStr, orders.length],
     queryFn: async () => {
-      if (!actor || !(orders as Order[]).length) return {};
+      if (!actor || !orders.length) return {};
       const results: Record<string, ReturnRequest | null> = {};
       await Promise.all(
-        (orders as Order[]).map(async (order) => {
+        orders.map(async (order) => {
           try {
-            const req = (await (actor as any).getReturnRequestByOrder(
-              order.id,
-            )) as ReturnRequest | null;
+            const req = (await (
+              actor as unknown as {
+                getReturnRequestByOrder: (
+                  id: string,
+                ) => Promise<ReturnRequest | null>;
+              }
+            ).getReturnRequestByOrder(order.id)) as ReturnRequest | null;
             results[order.id] = req;
           } catch {
             results[order.id] = null;
@@ -383,7 +384,7 @@ export default function SellerDashboard() {
       );
       return results;
     },
-    enabled: enabled && (orders as Order[]).length > 0,
+    enabled: enabled && orders.length > 0,
   });
 
   const isApproved =
@@ -393,7 +394,7 @@ export default function SellerDashboard() {
   const discountValue = Number.parseFloat(form.discountPercent) || 0;
   const sellingPrice = mrpValue > 0 ? mrpValue * (1 - discountValue / 100) : 0;
 
-  const sellerEarnings = (orders as Order[]).reduce(
+  const sellerEarnings = orders.reduce(
     (sum, o) => sum + Number(o.totalAmount) * 0.9,
     0,
   );
@@ -531,9 +532,13 @@ export default function SellerDashboard() {
         variants: existingVariants,
       };
       if (editId) {
-        await actor.updateProduct(product);
+        await actor.updateProduct(
+          product as unknown as Parameters<typeof actor.updateProduct>[0],
+        );
       } else {
-        await actor.addProduct(product);
+        await actor.addProduct(
+          product as unknown as Parameters<typeof actor.addProduct>[0],
+        );
       }
       queryClient.invalidateQueries({ queryKey: ["sellerProducts"] });
       queryClient.invalidateQueries({ queryKey: ["products"] });
@@ -635,7 +640,7 @@ export default function SellerDashboard() {
             },
             {
               label: "Total Orders",
-              value: (orders as Order[]).length,
+              value: orders.length,
               icon: <ShoppingBag className="w-6 h-6 text-orange-500" />,
               color: "#fff8f0",
               textColor: "#fb641b",
@@ -1123,7 +1128,7 @@ export default function SellerDashboard() {
           {/* Orders Tab */}
           {tab === "orders" && (
             <div className="p-5">
-              {(orders as Order[]).length === 0 ? (
+              {orders.length === 0 ? (
                 <div
                   className="text-center py-16"
                   data-ocid="seller.orders.empty_state"
@@ -1136,7 +1141,7 @@ export default function SellerDashboard() {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  {(orders as Order[]).map((order, i) => {
+                  {orders.map((order, i) => {
                     const statusKey =
                       typeof order.status === "object"
                         ? Object.keys(order.status)[0]

@@ -73,8 +73,8 @@ export default function SellerProfile() {
       queryFn: async () => {
         if (!actor || !sellerPrincipal) return null;
         const result = await actor.getSellerProfileData(sellerPrincipal);
-        if (!result || result.length === 0) return null;
-        return result[0] as SellerProfileData;
+        if (!result) return null;
+        return result as unknown as SellerProfileData;
       },
       enabled: !!actor && !!sellerPrincipal,
     });

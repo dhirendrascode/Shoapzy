@@ -1,42 +1,35 @@
-import {
-  Facebook,
-  Instagram,
-  Lock,
-  RotateCcw,
-  Shield,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Instagram, Lock, RotateCcw, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const footerColumns = [
   {
     heading: "ABOUT",
     links: [
-      { label: "About Us", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Corporate Information", href: "#" },
+      { label: "About Us", to: "/about" },
+      { label: "Careers", to: "/careers" },
+      { label: "Press", to: "/press" },
+      { label: "Blog", to: "/blog" },
+      { label: "Corporate Information", to: "/corporate" },
     ],
   },
   {
     heading: "HELP",
     links: [
-      { label: "Payments", href: "#" },
-      { label: "Shipping", href: "#" },
-      { label: "Cancellation & Returns", href: "#" },
-      { label: "FAQ", href: "#" },
-      { label: "Report Infringement", href: "#" },
+      { label: "Payments", to: "/help/payments" },
+      { label: "Shipping", to: "/help/shipping" },
+      { label: "Cancellation & Returns", to: "/help/returns" },
+      { label: "FAQ", to: "/help/faq" },
+      { label: "Report Infringement", to: "/help/report-infringement" },
     ],
   },
   {
     heading: "POLICY",
     links: [
-      { label: "Return Policy", href: "#" },
-      { label: "Terms of Use", href: "#" },
-      { label: "Security", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Sitemap", href: "#" },
+      { label: "Return Policy", to: "/policy/return-policy" },
+      { label: "Terms of Use", to: "/policy/terms" },
+      { label: "Security", to: "/policy/security" },
+      { label: "Privacy Policy", to: "/policy/privacy" },
+      { label: "Sitemap", to: "/policy/sitemap" },
     ],
   },
 ];
@@ -47,13 +40,11 @@ const socialLinks = [
     href: "https://www.facebook.com/share/1D8kyLCA7r/",
     Icon: Facebook,
   },
-  { label: "Twitter", href: "#", Icon: Twitter },
   {
     label: "Instagram",
     href: "https://www.instagram.com/dhirendra7572?igsh=MXdpcW4yMWVzYTdwaQ==",
     Icon: Instagram,
   },
-  { label: "YouTube", href: "#", Icon: Youtube },
 ];
 
 const trustBadges = [
@@ -102,7 +93,7 @@ export default function Footer() {
       {/* Main columns */}
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Link columns */}
+          {/* Link columns — use React Router Link for internal nav */}
           {footerColumns.map((col) => (
             <div key={col.heading}>
               <h3
@@ -114,20 +105,20 @@ export default function Footer() {
               <ul className="space-y-2">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.to}
                       className="text-sm transition-colors duration-150 hover:text-white"
                       style={{ color: "#9e9e9e" }}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
 
-          {/* Social column */}
+          {/* Social column — only Facebook and Instagram (real URLs) */}
           <div>
             <h3
               className="text-xs font-bold tracking-widest mb-4"

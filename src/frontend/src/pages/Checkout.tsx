@@ -219,15 +219,15 @@ export default function Checkout() {
       const result = await actor.validateCoupon(
         couponCode.trim().toUpperCase(),
       );
-      if (result.__kind === "ok") {
-        const discount = Number(result.ok);
+      if (result.__kind__ === "ok") {
+        const discount = Number((result as { __kind__: "ok"; ok: bigint }).ok);
         setAppliedCoupon({
           code: couponCode.trim().toUpperCase(),
           discountPercent: discount,
         });
         setCouponCode("");
       } else {
-        setCouponError(result.err);
+        setCouponError((result as { __kind__: "err"; err: string }).err);
         setAppliedCoupon(null);
       }
     } catch {
@@ -255,14 +255,20 @@ export default function Checkout() {
     setPointsApplying(true);
     setPointsError("");
     try {
-      const result = await actor.redeemLoyaltyPoints(BigInt(actualPoints));
-      if (result.__kind === "ok") {
+      const result = await actor.redeemLoyaltyPoints(
+        BigInt(actualPoints),
+        BigInt(total),
+      );
+      if (result.__kind__ === "ok") {
         setPointsApplied(discountPaise);
         setRedeemedPoints(actualPoints);
         setPointsToRedeem("");
         queryClient.invalidateQueries({ queryKey: ["loyaltyPoints"] });
       } else {
-        setPointsError(result.err ?? "Failed to redeem points.");
+        setPointsError(
+          (result as { __kind__: "err"; err: string }).err ??
+            "Failed to redeem points.",
+        );
       }
     } catch {
       setPointsError("Failed to apply points. Please try again.");
@@ -313,7 +319,9 @@ export default function Checkout() {
         items: cartItems,
         deliveryAddress: addressStr,
       };
-      await actor.placeOrder(order);
+      await actor.placeOrder(
+        order as unknown as Parameters<typeof actor.placeOrder>[0],
+      );
       await actor.clearCallerCart();
       queryClient.invalidateQueries({ queryKey: ["cart"] });
       queryClient.invalidateQueries({ queryKey: ["loyaltyPoints"] });
