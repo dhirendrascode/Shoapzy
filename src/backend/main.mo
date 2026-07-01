@@ -111,8 +111,8 @@ actor {
   };
 
   // Stable backing storage so admin role survives canister upgrades
-  stable var _stableAdminAssigned : Bool = false;
-  stable var _stableUserRoles : [(Principal, AccessControl.UserRole)] = [];
+   var _stableAdminAssigned : Bool = false;
+   var _stableUserRoles : [(Principal, AccessControl.UserRole)] = [];
 
   let accessControlState = AccessControl.initState();
   // Restore persisted admin role on startup
@@ -421,7 +421,7 @@ actor {
       Runtime.trap("Unauthorized: Can only view your own seller orders");
     };
     orders.values().toArray().filter(func(o : Order) : Bool {
-      o.items.find<CartItem>(func(item : CartItem) : Bool { item.seller == seller }) != null;
+      o.items.find(func(item : CartItem) : Bool { item.seller == seller }) != null;
     });
   };
 
@@ -780,7 +780,7 @@ actor {
         case (?(sum, cnt)) { totals.add(review.productId, (sum + review.rating, cnt + 1)) };
       };
     };
-    totals.entries().toArray().map<(Text, (Nat, Nat)), ReviewSummary>(func((productId, (sum, cnt))) : ReviewSummary {
+    totals.entries().toArray().map(func((productId, (sum, cnt))) : ReviewSummary {
       {
         productId;
         averageRating = sum.toFloat() / cnt.toFloat();

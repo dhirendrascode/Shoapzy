@@ -15586,7 +15586,7 @@ function mergeLoginOptions(loginOptions, otherLoginOptions) {
   };
 }
 const ONE_HOUR_IN_NANOSECONDS = BigInt(36e11);
-const DEFAULT_IDENTITY_PROVIDER = "https://id.ai";
+const DEFAULT_IDENTITY_PROVIDER = "https://id.ai/authorize";
 const InternetIdentityReactContext = reactExports.createContext(void 0);
 async function createAuthClient(createOptions) {
   const config = await loadConfig();
@@ -47024,9 +47024,9 @@ function PolicyTerms() {
     ] })
   ] });
 }
-const SavedAddresses = reactExports.lazy(() => __vitePreload(() => import("./SavedAddresses-4vZj5xVq.js"), true ? [] : void 0));
-const Compare = reactExports.lazy(() => __vitePreload(() => import("./Compare-pzm-eej5.js"), true ? [] : void 0));
-const Referral = reactExports.lazy(() => __vitePreload(() => import("./Referral-CHH2Bfoh.js"), true ? [] : void 0));
+const SavedAddresses = reactExports.lazy(() => __vitePreload(() => import("./SavedAddresses-Cty6OsAL.js"), true ? [] : void 0));
+const Compare = reactExports.lazy(() => __vitePreload(() => import("./Compare-D4jnGW-E.js"), true ? [] : void 0));
+const Referral = reactExports.lazy(() => __vitePreload(() => import("./Referral-DwC4aPnY.js"), true ? [] : void 0));
 const REGISTER_RETRY_DELAY_MS = 1200;
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
